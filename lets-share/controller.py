@@ -44,10 +44,12 @@ class ProfileSaveHandler(webapp2.RequestHandler):
     	for field in fields:
     		profileContent[field] = cgi.escape(self.request.get(field))
 
+        logging.info(profileContent)
+
     	ProfileDetail().save_profile(profileContent)
 
 
-    	logging.info(profileContent)
+    	
     	template_values = {}
     	template_values['page_title'] = 'Transport Details'
     	template_values['form_name'] = template_path + 'transport_form.template'
