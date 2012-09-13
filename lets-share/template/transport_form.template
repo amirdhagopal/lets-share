@@ -1,0 +1,23 @@
+<script>
+   var transportPage = {
+   	    submit: function() {
+	      $("#transport").submit();
+	    }
+   }
+ </script>
+<div  class="content-wrapper">
+	<form id="transport" action="/transport_submit" method="post">
+		  <div data-role="fieldcontain">
+        	<label for="from" class="ui-input-text">Origin:</label>
+        	<input type="text" name="from" placeholder="Origin" maxlength="25"></input>
+  		</div>
+      <div data-role="fieldcontain">
+          <label for="to" class="ui-input-text">Destination:</label>
+          <input type="text" name="to" placeholder="Destination" maxlength="25"></input>
+      </div>
+  		
+  		<div id="submitDiv" class="offset">
+        	<input type="button" data-theme="b" value="Submit" onclick="transportPage.submit()"/>
+      	</div>
+	</form>
+</div>
