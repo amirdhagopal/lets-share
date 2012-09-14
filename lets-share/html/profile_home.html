@@ -8,10 +8,18 @@
 		 <link type="text/css" href="../stylesheets/style.css" media="all" rel="stylesheet"></link>
 		 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 		 <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+
+		 <script type="text/javascript" src="../js/script.js"></script>
 		 <title> {{ page_title }} </title>
 	</head>
 	
 	<body>
-		{% include form_name %}
+		<div data-role="page" id="front">
+  			<div data-role="header" data-theme="b">
+    			<center><h1> {{ header }}</h1></center>
+    			<a href="{{ logout_url }}" data-theme="b" data-corners="true" data-shadow="true" data-icon="gear"> Logout </a>
+  			</div>
+			{% include form_name %}
+		</div>
 	</body>
 </html>

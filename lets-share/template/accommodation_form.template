@@ -1,0 +1,45 @@
+<div  class="content-wrapper">
+	<form id="accommodation" action="/accommodation_submit" method="post">
+      <div data-role="fieldcontain">
+        <fieldset id="requirement" data-role="controlgroup" data-type="horizontal">
+          <legend class="ui-input-text">Requirement:</legend>
+          <input type="radio" name="radio-view" id="radio-view-a" value="buy"/>
+          <label for="radio-view-a">Buy</label>
+          <input type="radio" name="radio-view" id="radio-view-b" value="sell"/>
+          <label for="radio-view-b">Sell</label>
+        </fieldset>
+      </div>      
+		  <div data-role="fieldcontain">
+        <fieldset id="accommodationtype" data-role="controlgroup" data-type="horizontal">
+          <legend class="ui-input-text">Accommodation Type:</legend>
+          <input type="radio" name="radio-view" id="radio-view-a" value="indepenent house"/>
+          <label for="radio-view-a">Independent house</label>
+          <input type="radio" name="radio-view" id="radio-view-b" value="apartment"/>
+          <label for="radio-view-b">Apartment</label>
+        </fieldset>
+  		</div>
+      <div data-role="fieldcontain">
+        <label for="bedrooms" class="ui-input-text">Bedrooms:</label>
+        <input type="number" name="bedrooms" pattern="[1-9]" placeholder="1" min="1" max="9"/> 
+      </div>
+      <div data-role="fieldcontain">
+        <label for="minbudget" class="ui-input-text">Min Budget:</label>
+        <input type="number" name="minbudget" pattern="[0-9]*" placeholder="1000" min="0" max="100000"/> 
+      </div>
+      <div data-role="fieldcontain">
+        <label for="maxbudget" class="ui-input-text">Max Budget:</label>
+        <input type="number" name="maxbudget" pattern="[0-9]*" placeholder="1000" min="0" max="100000"/> 
+      </div>
+      <div data-role="fieldcontain">
+          <label for="locality" class="ui-input-text">Locality:</label>
+          <input type="text" name="locality" placeholder="Locality" maxlength="25"></input>
+      </div>
+      <div data-role="fieldcontain">
+          <label for="city" class="ui-input-text">City:</label>
+          <input type="text" id="city" name="city" placeholder="City" maxlength="15"></input>
+      </div>
+  		<div id="submitDiv" class="offset">
+        	<input type="button" data-theme="b" value="Submit" onclick="accommodationPage.submit()"/>
+      	</div>
+	</form>
+</div>

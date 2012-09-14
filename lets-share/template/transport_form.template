@@ -1,21 +1,69 @@
-<script>
-   var transportPage = {
-   	    submit: function() {
-	      $("#transport").submit();
-	    }
-   }
- </script>
 <div  class="content-wrapper">
 	<form id="transport" action="/transport_submit" method="post">
+      <div data-role="fieldcontain">
+          <label for="city" class="ui-input-text">City:</label>
+          <input type="text" name="city" placeholder="City" maxlength="150"></input>
+      </div>      
 		  <div data-role="fieldcontain">
         	<label for="from" class="ui-input-text">Origin:</label>
-        	<input type="text" name="from" placeholder="Origin" maxlength="25"></input>
+        	<input type="text" name="origin" placeholder="Origin" maxlength="25"></input>
   		</div>
       <div data-role="fieldcontain">
           <label for="to" class="ui-input-text">Destination:</label>
-          <input type="text" name="to" placeholder="Destination" maxlength="25"></input>
+          <input type="text" name="destination" placeholder="Destination" maxlength="25"></input>
       </div>
-  		
+      <div data-role="fieldcontain">
+          <label for="via" class="ui-input-text">Via:</label>
+          <input type="text" name="via" placeholder="Via" maxlength="150"></input>
+      </div>
+      <div data-role="fieldcontain">
+          <label for="departure" class="ui-input-text">Departure Time:</label>
+          <input type="text" id="departure" name="departure" maxlength="10"></input>
+      </div>
+  		<div data-role="fieldcontain">
+          <label for="frequency" class="ui-input-text">Frequency:</label>
+          <select name="frequency">
+            <optgroup label="once">
+              <option value="once">Once</option>
+            </optgroup>
+            <optgroup label="repeat">
+              <option value="monday">Once</option>
+            </optgroup>
+          </select>
+      </div>
+      <div data-role="fieldcontain">
+          <fieldset id="vehicletype" data-role="controlgroup" data-type="horizontal">
+            <legend class="ui-input-text">Vehicle Type</legend>
+            <input type="radio" name="radio-view" id="radio-view-a" value="two-wheeler"/>
+            <label for="radio-view-a">Two-Wheeler</label>
+            <input type="radio" name="radio-view" id="radio-view-b" value="four-wheeler"/>
+            <label for="radio-view-b">Four-Wheeler</label>
+          </fieldset>
+      </div>
+      <div data-role="fieldcontain">
+        <label for="availableseats" class="ui-input-text">Available Seats:</label>
+        <input type="number" name="number" pattern="[1-9]" placeholder="1" min="1" max="9"/> 
+      </div>
+      <div data-role="fieldcontain">
+        <fieldset id="genderpreference" data-role="controlgroup" data-type="horizontal">
+            <legend class="ui-input-text">Gender Preference</legend>
+            <input type="radio" name="radio-view" id="radio-view-a" value="male"/>
+            <label for="radio-view-a">Male</label>
+            <input type="radio" name="radio-view" id="radio-view-b" value="transgender"/>
+            <label for="radio-view-b">Transgender</label>
+            <input type="radio" name="radio-view" id="radio-view-c" value="female"/>
+            <label for="radio-view-c">Female</label>
+        </fieldset>
+      </div>
+
+      <div data-role="fieldcontain">
+        <fieldset id="isactive" data-role="controlgroup" data-type="horizontal">
+            <legend class="ui-input-text">Is Active</legend>
+            <input type="checkbox" name="active" id="active" value="active"/>
+            <label for="active">Active</label>
+        </fieldset>
+      </div>
+
   		<div id="submitDiv" class="offset">
         	<input type="button" data-theme="b" value="Submit" onclick="transportPage.submit()"/>
       	</div>

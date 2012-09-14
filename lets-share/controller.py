@@ -26,15 +26,17 @@ from model.profile import ProfileDetail
 jinja_environment = jinja2.Environment( loader = jinja2.FileSystemLoader(os.path.dirname(__file__) ))
 html_path = 'html/'	
 template_path = 'template/'
+page_path =  html_path + 'profile_home.html'
 
 class ProfileHandler(webapp2.RequestHandler):
     def get(self):
     	user = users.get_current_user()
-    	template_values = {}
+    	utils = CommonUtils()
+        template_values = utils.get_template_values()
     	template_values['header'] = user.nickname()
     	template_values['page_title'] = 'Profile Details'
     	template_values['form_name'] = template_path + 'profile_form.template'
-    	template = jinja_environment.get_template(html_path+'profile_home.html')
+    	template = jinja_environment.get_template(page_path)
     	self.response.out.write(template.render(template_values))
 
 class ProfileSaveHandler(webapp2.RequestHandler):
@@ -44,19 +46,55 @@ class ProfileSaveHandler(webapp2.RequestHandler):
     	for field in fields:
     		profileContent[field] = cgi.escape(self.request.get(field))
 
+
+        user = users.get_current_user()
+        profileContent['user_id'] = user.user_id()
+
         logging.info(profileContent)
 
     	ProfileDetail().save_profile(profileContent)
 
 
-    	
-    	template_values = {}
-    	template_values['page_title'] = 'Transport Details'
+    	user = users.get_current_user()
+    	utils = CommonUtils()
+        template_values = utils.get_template_values()
+    	template_values['header'] = user.nickname()
+        template_values['page_title'] = 'Transport Details'
     	template_values['form_name'] = template_path + 'transport_form.template'
-    	template = jinja_environment.get_template(html_path+'profile_home.html')
+    	template = jinja_environment.get_template(page_path)
     	self.response.out.write(template.render(template_values))
 
         
 class TransportHandler(webapp2.RequestHandler):
 	def get(self):
 		pass
+
+class AccommodationHandler(webapp2.RequestHandler):
+    def get(self):
+        user = users.get_current_user()
+        utils = CommonUtils()
+        template_values = utils.get_template_values()
+        template_values['header'] = user.nickname()
+        template_values['page_title'] = 'Accommodation Details'
+        template_values['form_name'] = template_path + 'accommodation_form.template'
+        template = jinja_environment.get_template(page_path)
+        self.response.out.write(template.render(template_values))
+
+class ServicesHandler(webapp2.RequestHandler):
+    def get(self):
+        user = users.get_current_user()
+        utils = CommonUtils()
+        template_values = utils.get_template_values()
+        template_values['header'] = user.nickname()
+        template_values['page_title'] = 'Services'
+        template_values['form_name'] = template_path + 'services_list.template'
+        template = jinja_environment.get_template(page_path)
+        self.response.out.write(template.render(template_values))
+
+
+
+class CommonUtils():
+    def get_template_values(self):
+        template_values = {}
+        template_values['logout_url'] = users.create_logout_url("/")
+        return template_values
