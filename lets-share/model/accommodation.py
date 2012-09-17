@@ -4,12 +4,12 @@ from corporate import Corporate
 from profile import Profile
 
 class Accommodation(db.Model):
-	profile = db.ReferenceProperty(Profile, collection_name="schedules")
+	profile = db.ReferenceProperty(Profile, collection_name="accommodations")
 	requirement = db.StringProperty()
 	accommodationtype = db.StringProperty()
-	bedrooms = db.IntegerProperty()
-	minbudget = db.IntegerProperty()
-	maxbudget = db.IntegerProperty()
+	bedrooms = db.StringProperty() #TODO: Integer
+	minbudget = db.StringProperty() #TODO: Integer
+	maxbudget = db.StringProperty() #TODO: Integer
 	locality=db.StringProperty()
 	city=db.StringProperty()
 
@@ -22,6 +22,6 @@ class AccommodationDetail():
 		accommodation = Accommodation()
 		for field in self.get_fields():
 			logging.info("Setting Field : " + field)
-			setattr(transport, field, accommodationContent[field])
+			setattr(accommodation, field, accommodationContent[field])
 
-		transport.put()
+		accommodation.put()

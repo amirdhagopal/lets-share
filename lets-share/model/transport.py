@@ -9,11 +9,11 @@ class Transport(db.Model):
 	destination = db.StringProperty()
 	city = db.StringProperty()
 	via = db.StringProperty()
-	frequency = db.ListProperty()
+	frequency = db.StringProperty()
 	vehicletype=db.StringProperty()
-	availableseats=db.IntegerProperty()
+	availableseats=db.StringProperty() #TODO: Integer
 	genderpreference = db.StringProperty( choices=['male','female','transgender'])
-	isactive = db.BooleanProperty()
+	isactive = db.StringProperty() #TODO: Boolean
 
 
 class TransportDetail():

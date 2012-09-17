@@ -15,3 +15,8 @@ var transportPage = {
       $("#transport").submit();
     }
 }
+
+var userOperation = {
+	logout: function(){
+	}
+}
