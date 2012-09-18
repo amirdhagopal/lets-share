@@ -20,10 +20,16 @@ class TransportDetail():
 	def get_fields(self):
 		return ['profile', 'origin', 'destination', 'city', 'via', 'frequency', 'vehicletype', 'availableseats', 'genderpreference', 'isactive']
 
-	def save_transport(self, transportContent):
-		transport = Transport()
+	def get_transport(self, id):
+		return Transport.get_by_id(id)
+
+	def save_transport(self, transportContent, transport):
+		if transport is None:
+			transport = Transport()
+
 		for field in self.get_fields():
 			logging.info("Setting Field : " + field)
 			setattr(transport, field, transportContent[field])
 
 		transport.put()
+

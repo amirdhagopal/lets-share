@@ -84,13 +84,33 @@ class ProfileHandler(BaseHandler):
 class TransportHandler(BaseHandler):
     def get(self):
         template_values = CommonUtils().get_template_values()
+        
+        transport_id_str = self.request.get('id')
+        transport_id = (int(transport_id_str) if transport_id_str else 0)
+        transport = None
+        if(transport_id != 0):
+            transport = TransportDetail().get_transport(transport_id)
+            template_values['transportid'] = transport_id
+        
+        if transport is not None:
+            for field in TransportDetail().get_fields():
+                template_values[field] = getattr(transport, field)
+        
         template_values['header'] = users.get_current_user().nickname()
         template_values['page_title'] = 'Transport Details'
         template_values['form_name'] = template_path + 'transport_form.template'
+        
+        
         template = jinja_environment.get_template(page_path)
         self.response.out.write(template.render(template_values))
 
     def post(self):
+        transportid_str = cgi.escape(self.request.get('transportid'))
+        transportid = (int(transportid_str) if transportid_str else 0)
+        transport = None
+        if(transportid != 0):
+            transport = TransportDetail().get_transport(transportid)
+
         fields = TransportDetail().get_fields()
         transportContent = {}
         for field in fields:
@@ -99,7 +119,9 @@ class TransportHandler(BaseHandler):
         user = users.get_current_user()
         transportContent['profile'] = ProfileDetail().get_profile(user.user_id())
 
-        TransportDetail().save_transport(transportContent)
+        logging.info(transportContent)
+
+        TransportDetail().save_transport(transportContent, transport)
 
         self.redirect("/accommodation")
 

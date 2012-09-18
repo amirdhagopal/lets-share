@@ -1,24 +1,25 @@
 <div  class="content-wrapper">
 	<form id="transport" action="/transport_submit" method="post">
+      <input type="hidden" name="transportid" value="{{ transportid }}">
       <div data-role="fieldcontain">
           <label for="city" class="ui-input-text">City:</label>
-          <input type="text" name="city" placeholder="City" maxlength="150"></input>
+          <input type="text" name="city" placeholder="City" maxlength="150" value="{{ city }}"></input>
       </div>      
 		  <div data-role="fieldcontain">
         	<label for="from" class="ui-input-text">Origin:</label>
-        	<input type="text" name="origin" placeholder="Origin" maxlength="25"></input>
+        	<input type="text" name="origin" placeholder="Origin" maxlength="25" value="{{ origin }}"></input>
   		</div>
       <div data-role="fieldcontain">
           <label for="to" class="ui-input-text">Destination:</label>
-          <input type="text" name="destination" placeholder="Destination" maxlength="25"></input>
+          <input type="text" name="destination" placeholder="Destination" maxlength="25" value="{{ destination }}"></input>
       </div>
       <div data-role="fieldcontain">
           <label for="via" class="ui-input-text">Via:</label>
-          <input type="text" name="via" placeholder="Via" maxlength="150"></input>
+          <input type="text" name="via" placeholder="Via" maxlength="150" value="{{ via }}"></input>
       </div>
       <div data-role="fieldcontain">
           <label for="departure" class="ui-input-text">Departure Time:</label>
-          <input type="text" id="departure" name="departure" maxlength="10"></input>
+          <input type="text" id="departure" name="departure" maxlength="10" value="{{ departure }}"></input>
       </div>
   		<div data-role="fieldcontain">
           <label for="frequency" class="ui-input-text">Frequency:</label>
@@ -34,24 +35,24 @@
       <div data-role="fieldcontain">
           <fieldset id="vehicletype" data-role="controlgroup" data-type="horizontal">
             <legend class="ui-input-text">Vehicle Type</legend>
-            <input type="radio" name="radio-view" id="radio-view-a" value="two-wheeler"/>
+            <input type="radio" name="vehicletype" id="radio-view-a" value="two-wheeler" {% if vehicletype == 'two-wheeler' %} checked {% endif%}/>
             <label for="radio-view-a">Two-Wheeler</label>
-            <input type="radio" name="radio-view" id="radio-view-b" value="four-wheeler"/>
+            <input type="radio" name="vehicletype" id="radio-view-b" value="four-wheeler" {% if vehicletype == 'four-wheeler' %} checked {% endif%}/>
             <label for="radio-view-b">Four-Wheeler</label>
           </fieldset>
       </div>
       <div data-role="fieldcontain">
         <label for="availableseats" class="ui-input-text">Available Seats:</label>
-        <input type="number" name="number" pattern="[1-9]" placeholder="1" min="1" max="9"/> 
+        <input type="number" name="availableseats" pattern="[1-9]" placeholder="1" min="1" max="9" value="{{ availableseats }}"/> 
       </div>
       <div data-role="fieldcontain">
         <fieldset id="genderpreference" data-role="controlgroup" data-type="horizontal">
             <legend class="ui-input-text">Gender Preference</legend>
-            <input type="radio" name="radio-view" id="radio-view-a" value="male"/>
+            <input type="radio" name="genderpreference" id="radio-view-a" value="male" {% if genderpreference == 'male' %} checked {% endif%} />
             <label for="radio-view-a">Male</label>
-            <input type="radio" name="radio-view" id="radio-view-b" value="transgender"/>
+            <input type="radio" name="genderpreference" id="radio-view-b" value="transgender" {% if genderpreference == 'transgender' %} checked {% endif%} />
             <label for="radio-view-b">Transgender</label>
-            <input type="radio" name="radio-view" id="radio-view-c" value="female"/>
+            <input type="radio" name="genderpreference" id="radio-view-c" value="female" {% if genderpreference == 'female' %} checked {% endif%}/>
             <label for="radio-view-c">Female</label>
         </fieldset>
       </div>
@@ -59,8 +60,8 @@
       <div data-role="fieldcontain">
         <fieldset id="isactive" data-role="controlgroup" data-type="horizontal">
             <legend class="ui-input-text">Is Active</legend>
-            <input type="checkbox" name="active" id="active" value="active"/>
-            <label for="active">Active</label>
+            <input type="checkbox" name="isactive" id="isactive" value="active" {% if isactive == 'active' %} checked {%endif%}/>
+            <label for="isactive">Active</label>
         </fieldset>
       </div>
 
