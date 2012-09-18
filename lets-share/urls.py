@@ -11,6 +11,9 @@ app = webapp2.WSGIApplication([(r'/profile_submit', ProfileHandler),
 							   (r'/accommodation', AccommodationHandler),
 							   (r'/accommodation_submit', AccommodationHandler),
 							   
+							   (r'/corporate', CorporateHandler),
+							   (r'/corporate_submit', CorporateHandler),
+
 							   (r'/services', ServicesHandler),
 							   
 							   (r'/', ProfileHandler)],

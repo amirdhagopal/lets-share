@@ -24,6 +24,7 @@ from google.appengine.api import users
 from model.profile import ProfileDetail
 from model.transport import TransportDetail
 from model.accommodation import AccommodationDetail
+from model.corporate import CorporateDetail
 
 jinja_environment = jinja2.Environment( loader = jinja2.FileSystemLoader(os.path.dirname(__file__) ))
 html_path = 'html/'	
@@ -44,6 +45,7 @@ class ProfileHandler(BaseHandler):
     def get(self):
     	template_values = CommonUtils().get_template_values()
         user = users.get_current_user()
+        corporates = CorporateDetail().get_all_corporates()
 
         profile = ProfileDetail().get_profile(user.user_id())
         if profile is not None:
@@ -53,6 +55,8 @@ class ProfileHandler(BaseHandler):
     	template_values['header'] = user.nickname()
     	template_values['page_title'] = 'Profile Details'
     	template_values['form_name'] = template_path + 'profile_form.template'
+        template_values['corporates'] = corporates
+
     	template = jinja_environment.get_template(page_path)
     	self.response.out.write(template.render(template_values))
 
@@ -61,6 +65,9 @@ class ProfileHandler(BaseHandler):
     	profileContent = {}
     	for field in fields:
     		profileContent[field] = cgi.escape(self.request.get(field))
+
+        corporate_id = int(cgi.escape(self.request.get('corporate')))
+        profileContent['corporate'] = CorporateDetail().get_corporate_by_id(corporate_id)
 
         user = users.get_current_user()
 
@@ -118,6 +125,26 @@ class AccommodationHandler(BaseHandler):
         accommodationContent['profile'] = ProfileDetail().get_profile(user.user_id())
 
         AccommodationDetail().save_accommodation(accommodationContent)
+
+        self.redirect("/services")
+
+class CorporateHandler(BaseHandler):
+    def get(self):
+        user = users.get_current_user()
+        template_values = CommonUtils().get_template_values()
+        template_values['header'] = 'Corporate Details'
+        template_values['page_title'] = 'Corporate Details'
+        template_values['form_name'] = template_path + 'corporate_form.template'
+        template = jinja_environment.get_template(page_path)
+        self.response.out.write(template.render(template_values))
+
+    def post(self):
+        fields = CorporateDetail().get_fields()
+        corporateContent = {}
+        for field in fields:
+            corporateContent[field] = cgi.escape(self.request.get(field))
+
+        CorporateDetail().save_corporate(corporateContent)
 
         self.redirect("/services")
 

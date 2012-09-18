@@ -16,6 +16,12 @@ var transportPage = {
     }
 }
 
+var corporatePage = {
+  submit: function() {
+      $("#corporate").submit();
+    }
+}
+
 var userOperation = {
 	logout: function(){
 	}

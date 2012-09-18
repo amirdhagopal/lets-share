@@ -25,4 +25,4 @@ class CalculatedProperty(db.Property):
     the arguments to this class and what they mean."""
     if model_instance is None:
       return self
-    return self.derive_fn(model_instance)
+    return self.calc_fn(model_instance)

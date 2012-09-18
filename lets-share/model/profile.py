@@ -8,8 +8,7 @@ class Profile(db.Model):
 	phone = db.StringProperty()
 	email = db.EmailProperty()
 	address = db.StringProperty()
-	#company = db.ReferenceProperty(Corporate, collection_name="profiles")
-	company = db.StringProperty()
+	corporate = db.ReferenceProperty(Corporate, collection_name="profiles")
 	city = db.StringProperty()
 	pincode = db.StringProperty()
 	user_id = db.StringProperty()
@@ -18,7 +17,7 @@ class Profile(db.Model):
 
 class ProfileDetail():
 	def get_fields(self):
-		return ['name', 'gender', 'phone', 'email', 'company', 'address', 'city', 'pincode', 'user_id']
+		return ['name', 'gender', 'phone', 'email', 'address', 'corporate', 'city', 'pincode', 'user_id']
 
 	def get_profile(self, user_id):
 		q = Profile.gql("WHERE user_id = '"+user_id+"'")

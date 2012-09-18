@@ -1,0 +1,15 @@
+<div class="content-wrapper">
+	<form id="corporate" action="/corporate_submit" method="post">
+		<div data-role="fieldcontain">
+       <label for="name" class="ui-input-text">Name:</label>
+       <input type="text" name="name" placeholder="Corporate Name" maxlength="25" value="{{ name }}"></input>
+  	</div>
+    <div data-role="fieldcontain">
+       <label for="city" class="ui-input-text">City:</label>
+       <input type="text" name="city" placeholder="City" maxlength="10" value="{{ city }}"></input>
+    </div>
+  	<div id="submitCorporate" class="offset">
+     	<input type="button" data-theme="b" value="Submit" onclick="corporatePage.submit()"/>
+    </div>
+	</form>
+</div>
