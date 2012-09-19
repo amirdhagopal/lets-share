@@ -130,7 +130,21 @@ class TransportHandler(BaseHandler):
 class AccommodationHandler(BaseHandler):
     def get(self):
         user = users.get_current_user()
+
+        accommodation_id_str = self.request.get('id')
+        accommodation_id = (int(accommodation_id_str) if accommodation_id_str else 0)
+        accommodation = None
+
         template_values = CommonUtils().get_template_values()
+        if(accommodation_id != 0):
+            accommodation = AccommodationDetail().get_accommodation(accommodation_id)
+            template_values['accommodationid'] = accommodation_id
+        
+        if accommodation is not None:
+            for field in AccommodationDetail().get_fields():
+                template_values[field] = getattr(accommodation, field)
+        
+        
         template_values['header'] = user.nickname()
         template_values['page_title'] = 'Accommodation Details'
         template_values['form_name'] = template_path + 'accommodation_form.template'
@@ -138,6 +152,14 @@ class AccommodationHandler(BaseHandler):
         self.response.out.write(template.render(template_values))
 
     def post(self):
+        accommodationid_str = cgi.escape(self.request.get('accommodationid'))
+        accommodationid = (int(accommodationid_str) if accommodationid_str else 0)
+        logging.info(accommodationid)
+        accommodation = None
+        if(accommodationid != 0):
+            accommodation = AccommodationDetail().get_accommodation(accommodationid)
+        
+        logging.info(accommodation)
         fields = AccommodationDetail().get_fields()
         accommodationContent = {}
         for field in fields:
@@ -146,7 +168,7 @@ class AccommodationHandler(BaseHandler):
         user = users.get_current_user()
         accommodationContent['profile'] = ProfileDetail().get_profile(user.user_id())
 
-        AccommodationDetail().save_accommodation(accommodationContent)
+        AccommodationDetail().save_accommodation(accommodationContent, accommodation)
 
         self.redirect("/services")
 

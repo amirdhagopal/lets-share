@@ -18,8 +18,13 @@ class AccommodationDetail():
 	def get_fields(self):
 		return ['profile', 'requirement', 'accommodationtype', 'bedrooms', 'minbudget', 'maxbudget', 'locality', 'city']
 
-	def save_accommodation(self, accommodationContent):
-		accommodation = Accommodation()
+	def get_accommodation(self, id):
+		return Accommodation.get_by_id(id)
+
+	def save_accommodation(self, accommodationContent, accommodation):
+		if accommodation is None:
+			accommodation = Accommodation()
+
 		for field in self.get_fields():
 			logging.info("Setting Field : " + field)
 			setattr(accommodation, field, accommodationContent[field])
