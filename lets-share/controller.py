@@ -125,6 +125,16 @@ class TransportHandler(BaseHandler):
 
         self.redirect("/accommodation")
 
+class TransportListHandler(BaseHandler):
+    def get(self):
+        template_values = CommonUtils().get_template_values()
+        template_values['header'] = users.get_current_user().nickname()
+        template_values['page_title'] = 'Transport List'
+        template_values['form_name'] = template_path + 'transport_list.template'
+        template_values['transports'] = TransportDetail().get_transports_for_corporates(None)
+        template = jinja_environment.get_template(page_path)
+        self.response.out.write(template.render(template_values))
+
 
 
 class AccommodationHandler(BaseHandler):

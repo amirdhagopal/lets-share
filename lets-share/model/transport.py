@@ -23,10 +23,12 @@ class TransportDetail():
 	def get_transport(self, id):
 		return Transport.get_by_id(id)
 
+	def get_transports_for_corporates(self, corporate):
+		return Transport.all()
+
 	def save_transport(self, transportContent, transport):
 		if transport is None:
 			transport = Transport()
-
 		for field in self.get_fields():
 			logging.info("Setting Field : " + field)
 			setattr(transport, field, transportContent[field])
