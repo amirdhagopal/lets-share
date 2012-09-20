@@ -10,13 +10,49 @@
         </li>
       {% endfor %}
   </div> -->
+    <!-- <div data-role="collapsible-set" data-theme="b" data-content-theme="d">
+
     <ul data-role="listview">
       {% for transport in transports %}
         <li>
-            <h3> {{ transport.origin }} - {{ transport.destination }} </h3>
-            <p> {{ transport.origin }} - {{ transport.destination }} - {{ transport.via }}
-            </p>
+            <h3> Origin: {{ transport.origin }}&nbsp;&nbsp;&nbsp;Destination: {{ transport.destination }} </h3>
+            <p> Via - {{ transport.via }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Time: {{ transport.departuretime }}</p>
         </li>
       {% endfor %}
-  </ul>
+  </ul> -->
+
+  <!-- <div data-role="collapsible-set" data-theme="b" data-content-theme="d">
+      
+      
+      {% for transport in transports %}
+        <div data-role="collapsible">
+            <div> {{ transport.origin }} To {{ transport.destination }} <br/>
+             Via - {{ transport.via }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Time: {{ transport.departuretime }}</div>
+            
+        <ul data-role="listview">
+          <li>
+          <p> Extra Content </p>
+        </li>
+        </ul>        
+        </div>
+      {% endfor %}
+ -->  
+ 
+ <ul data-role="listview" data-inset="true" data-divider-theme="f">       
+      
+      {% for transport in transports %}
+      <li data-role="list-divider">
+        <div> {{ transport.origin }} To {{ transport.destination }} <br/>
+             <i>Via - {{ transport.via }}</i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Time: {{ transport.departuretime }}</div>
+      </li>
+      <li>
+        
+        <div data-role="collapsible">
+          <p> Extra Content </p>
+        </div>
+        
+        </li>  
+      {% endfor %}
+</ul>
+
 </div>

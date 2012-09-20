@@ -17,9 +17,13 @@
 		<div data-role="page" id="front">
   			<div data-role="header" data-theme="b">
     			<center><h1> {{ header }}</h1></center>
-    			<a href="{{ logout_url }}" data-theme="b" data-corners="true" data-shadow="true" data-icon="gear"> Logout </a>
+    			<a href="{{ logout_url }}" data-theme="b" data-corners="true" data-shadow="true" data-icon="gear" class="ui-btn-right"> Logout </a>
   			</div>
+
 			{% include form_name %}
+			<div data-role="footer" data-theme="b">
+			  <center> &copy; Copyright 2012 by Spawn Stars </center>
+			</div>
 		</div>
 	</body>
 </html>

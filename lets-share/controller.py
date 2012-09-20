@@ -29,7 +29,7 @@ from model.corporate import CorporateDetail
 jinja_environment = jinja2.Environment( loader = jinja2.FileSystemLoader(os.path.dirname(__file__) ))
 html_path = 'html/'	
 template_path = 'template/'
-page_path =  html_path + 'profile_home.html'
+page_path =  html_path + 'page.html'
 
 class CommonUtils():
     def get_template_values(self):

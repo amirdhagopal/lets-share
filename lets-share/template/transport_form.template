@@ -18,8 +18,8 @@
           <input type="text" name="via" placeholder="Via" maxlength="150" value="{{ via }}"></input>
       </div>
       <div data-role="fieldcontain">
-          <label for="departure" class="ui-input-text">Departure Time:</label>
-          <input type="text" id="departure" name="departure" maxlength="10" value="{{ departure }}"></input>
+          <label for="departuretime" class="ui-input-text">Departure Time:</label>
+          <input type="text" id="departuretime" name="departuretime" maxlength="10" value="{{ departuretime }}"></input>
       </div>
   		<div data-role="fieldcontain">
           <label for="frequency" class="ui-input-text">Frequency:</label>
