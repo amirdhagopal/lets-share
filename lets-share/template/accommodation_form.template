@@ -1,3 +1,4 @@
+<div class="content-wrapper"><h2>Accommodation</h2></div>
 <div  class="content-wrapper">
 	<form id="accommodation" action="/accommodation_submit" method="post">
       <input type="hidden" name="accommodationid" value="{{ accommodationid }}">

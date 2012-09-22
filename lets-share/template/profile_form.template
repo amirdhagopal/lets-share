@@ -1,3 +1,4 @@
+<div class="content-wrapper"><h2>Profile</h2></div>
 <div class="content-wrapper">
 	<form id="profile" action="/profile_submit" method="post">
 		<div data-role="fieldcontain">
