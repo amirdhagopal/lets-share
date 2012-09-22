@@ -6,14 +6,14 @@
        <input type="text" name="name" placeholder="Your Name" maxlength="25" value="{{ name }}"></input>
   	</div>
   	<div data-role="fieldcontain">
-      <fieldset id="gender-choice" name="gender-choice" data-role="controlgroup" data-type="horizontal">
+      <fieldset id="gender-choice" name="gender-choice" data-role="controlgroup" data-type="vertical" class="ui-controlgroup-horizontal">
         <legend class="ui-input-text">Gender</legend>
         <input type="radio" name="gender" id="radio-view-a" value="male" {% if gender == 'male' %} checked {% endif%} />
-        <label for="radio-view-a">Male</label>
+        <label for="radio-view-a" class="nui-corner-left n-align">Male</label>
         <input type="radio" name="gender" id="radio-view-b" value="transgender" {% if gender == 'transgender' %} checked {% endif%}/>
-        <label for="radio-view-b">Transgender</label>
+        <label for="radio-view-b" class="nui-corner-middle">Transgender</label>
         <input type="radio" name="gender" id="radio-view-c" value="female" {% if gender == 'female' %} checked {% endif%}/>
-        <label for="radio-view-c">Female</label>
+        <label for="radio-view-c" class="nui-corner-right">Female</label>
       </fieldset>
   	</div>
     <div data-role="fieldcontain">

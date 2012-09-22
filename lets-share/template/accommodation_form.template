@@ -9,6 +9,10 @@
           <label for="radio-view-a">Buy</label>
           <input type="radio" name="requirement" id="radio-view-b" value="sell" {% if requirement == 'sell' %} checked {% endif%}/>
           <label for="radio-view-b">Sell</label>
+          <input type="radio" name="requirement" id="radio-view-c" value="rent" {% if requirement == 'rent' %} checked {% endif%}/>
+          <label for="radio-view-c">Rent</label>
+          <input type="radio" name="requirement" id="radio-view-d" value="lease" {% if requirement == 'lease' %} checked {% endif%}/>
+          <label for="radio-view-d">Lease</label>
         </fieldset>
       </div>      
 		  <div data-role="fieldcontain">

@@ -18,9 +18,15 @@
           <label for="via" class="ui-input-text">Via:</label>
           <input type="text" name="via" placeholder="Via" maxlength="150" value="{{ via }}"></input>
       </div>
-      <div data-role="fieldcontain">
+      <!--div data-role="fieldcontain">
           <label for="departuretime" class="ui-input-text">Departure Time:</label>
           <input type="text" id="departuretime" name="departuretime" maxlength="10" value="{{ departuretime }}"></input>
+      </div-->
+      <div data-role="fieldcontain">
+        <fieldset data-role="controlgroup">
+          <label for="departuretime" class="ui-input-text">Departure Time:</label>
+          <input type="text" data-theme="c" data-options="{&quot;mode&quot;:&quot;timeflipbox&quot;, &quot;useNewStyle&quot;:true}" data-role="datebox" id="departuretime" name="departuretime" class="ui-btn ui-body-d ui-fullsize ui-corner-all nui-icon-datebox" readonly="readonly" value="{{ departuretime }}">
+        </fieldset>
       </div>
   		<div data-role="fieldcontain">
           <label for="frequency" class="ui-input-text">Frequency:</label>
@@ -34,11 +40,11 @@
           </select>
       </div>
       <div data-role="fieldcontain">
-          <fieldset id="vehicletype" data-role="controlgroup" data-type="horizontal">
-            <legend class="ui-input-text">Vehicle Type</legend>
-            <input type="radio" name="vehicletype" id="radio-view-a" value="two-wheeler" {% if vehicletype == 'two-wheeler' %} checked {% endif%}/>
+          <fieldset id="vehicletype" data-role="controlgroup" data-type="vertical">
+            <legend class="ui-input-text">Vehicle Type:</legend>
+            <input type="checkbox" name="vehicletype" id="radio-view-a" value="two-wheeler" {% if vehicletype == 'two-wheeler' %} checked {% endif%}/>
             <label for="radio-view-a">Two-Wheeler</label>
-            <input type="radio" name="vehicletype" id="radio-view-b" value="four-wheeler" {% if vehicletype == 'four-wheeler' %} checked {% endif%}/>
+            <input type="checkbox" name="vehicletype" id="radio-view-b" value="four-wheeler" {% if vehicletype == 'four-wheeler' %} checked {% endif%}/>
             <label for="radio-view-b">Four-Wheeler</label>
           </fieldset>
       </div>
@@ -47,25 +53,32 @@
         <input type="number" name="availableseats" pattern="[1-9]" placeholder="1" min="1" max="9" value="{{ availableseats }}"/> 
       </div>
       <div data-role="fieldcontain">
-        <fieldset id="genderpreference" data-role="controlgroup" data-type="horizontal">
-            <legend class="ui-input-text">Gender Preference</legend>
-            <input type="radio" name="genderpreference" id="radio-view-a" value="male" {% if genderpreference == 'male' %} checked {% endif%} />
+        <fieldset id="genderpreference" data-role="controlgroup" data-type="vertical">
+            <legend class="ui-input-text">Gender Preference:</legend>
+            <input type="checkbox" data-icon="plus" name="genderpreference" id="radio-view-a" value="male" {% if genderpreference == 'male' %} checked {% endif%} />
             <label for="radio-view-a">Male</label>
-            <input type="radio" name="genderpreference" id="radio-view-b" value="transgender" {% if genderpreference == 'transgender' %} checked {% endif%} />
+            <input type="checkbox" data-icon="plus" name="genderpreference" id="radio-view-b" value="transgender" {% if genderpreference == 'transgender' %} checked {% endif%} />
             <label for="radio-view-b">Transgender</label>
-            <input type="radio" name="genderpreference" id="radio-view-c" value="female" {% if genderpreference == 'female' %} checked {% endif%}/>
+            <input type="checkbox" data-icon="plus" name="genderpreference" id="radio-view-c" value="female" {% if genderpreference == 'female' %} checked {% endif%}/>
             <label for="radio-view-c">Female</label>
         </fieldset>
       </div>
-
-      <div data-role="fieldcontain">
+      <!--div data-role="fieldcontain">
         <fieldset id="isactive" data-role="controlgroup" data-type="horizontal">
-            <legend class="ui-input-text">Is Active</legend>
+            <legend class="ui-input-text">Profile status</legend>
             <input type="checkbox" name="isactive" id="isactive" value="active" {% if isactive == 'active' %} checked {%endif%}/>
             <label for="isactive">Active</label>
         </fieldset>
+      </div-->
+      <div data-role="fieldcontain">
+        <fieldset id="isactive" data-role="controlgroup" data-type="horizontal">
+          <label for="flip-1">Profile status:</label>
+          <select name="flip-1" id="flip-1" data-role="slider" class="profileStatus">
+            <option value="off">Inactive</option>
+            <option value="on" name="isactive" id="isactive" value="active" {% if isactive == 'active' %} checked {%endif%} >Active</option>
+          </select> 
+        </fieldset>
       </div>
-
   		<div id="submitDiv" class="offset">
         	<input type="button" data-theme="b" value="Submit" onclick="transportPage.submit()"/>
       	</div>
