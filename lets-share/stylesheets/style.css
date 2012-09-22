@@ -12,7 +12,7 @@
       padding-top: 10px;
     }
   
-  label {
+  label, .ui-controlgroup-label {
     color: #666;
   }
   label .rating-note { color: #ccc; font-style: italic; font-size: 90%;}
@@ -56,3 +56,36 @@
   }
 
 }
+
+.letsshareLogo {
+  width: 30%;
+  float: left;
+}
+
+.userTitle {
+  width: 69%;
+  float: right;
+  font-size: 16px;
+  margin-top: 45px;
+  text-align: right;
+  padding-right: 1%;
+}
+
+.headerWrapperN {
+  overflow: auto;
+}
+
+input.ui-input-text, textarea.ui-input-text {background: #fcfcfc;}
+.ui-btn-up-b {
+  background: -moz-linear-gradient(#69cf6e, #4baf50) repeat scroll 0 0 #4baf50;
+  border: 1px solid #4baf50;
+}
+.ui-btn-hover-b {
+  background: -moz-linear-gradient(#5bb360, #69cf6e) repeat scroll 0 0 #5bb360;
+  border: 1px solid #5bb360;
+}
+.ui-focus, .ui-btn:focus{
+  box-shadow: 0 0 12px #38be45;
+}
+
+.ui-footer center {font-size: 12px; padding: 10px 0 10px 0;}
