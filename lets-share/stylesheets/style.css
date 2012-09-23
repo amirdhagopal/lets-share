@@ -51,14 +51,32 @@ textarea.ui-input-text {height: 100px;}
 /*spawn*/
 .letsshareLogo { width: 30%; float: left;}
 
-.userTitle {
-  width: 68%; float: right; font-size: 16px; margin-top: 45px; text-align: right; padding-right: 1%;}
+.userTitle {width: 68%; float: right; font-size: 14px; margin-top: 45px; text-align: right; padding-right: 1%; font-weight: normal;}
 .userTitle img{ margin-left: 1%;}
 .headerWrapperN { overflow: auto;}
+img {max-width: 100%}
 
-input.ui-input-text, textarea.ui-input-text {background: #fcfcfc;}
-.ui-btn-up-b { background: -moz-linear-gradient(#69cf6e, #4baf50) repeat scroll 0 0 #4baf50; border: 1px solid #4baf50;}
-.ui-btn-hover-b { background: -moz-linear-gradient(#5bb360, #69cf6e) repeat scroll 0 0 #5bb360; border: 1px solid #5bb360;}
+input.ui-input-text, textarea.ui-input-text {background: #fcfcfc; border: 1px solid #ccc;}
+.ui-btn-up-b { 
+  background: #4baf50;
+  background: -webkit-gradient(linear, left top, left bottom, from(#69cf6e), to(#4baf50)); /* Saf4+, Chrome */
+  background:  -webkit-linear-gradient(top, #69cf6e, #4baf50); /* Chrome 10+, Saf5.1+ */
+  background:     -moz-linear-gradient(top, #69cf6e, #4baf50); /* FF3.6+ */
+  background:      -ms-linear-gradient(top, #69cf6e, #4baf50); /* IE10 */
+  background:       -o-linear-gradient(top, #69cf6e, #4baf50); /* Opera 11.10+ */
+  background:          linear-gradient(top, #69cf6e, #4baf50); /* W3C */
+  border: 1px solid #4baf50;
+}
+.ui-btn-hover-b { 
+  background: #5bb360;
+  background: -webkit-gradient(linear, left top, left bottom, from(#5bb360), to(#69cf6e)); /* Saf4+, Chrome */
+  background:  -webkit-linear-gradient(top, #5bb360, #69cf6e); /* Chrome 10+, Saf5.1+ */
+  background:     -moz-linear-gradient(top, #5bb360, #69cf6e); /* FF3.6+ */
+  background:      -ms-linear-gradient(top, #5bb360, #69cf6e); /* IE10 */
+  background:       -o-linear-gradient(top, #5bb360, #69cf6e); /* Opera 11.10+ */
+  background:          linear-gradient(top, #5bb360, #69cf6e); /* W3C */
+  border: 1px solid #5bb360;
+ }
 .ui-btn-up-c, .ui-btn-hover-c {font-weight: normal;}
 .ui-focus, .ui-btn:focus{ box-shadow: 0 0 12px #38be45;}
 
@@ -82,6 +100,15 @@ input.ui-input-text, textarea.ui-input-text {background: #fcfcfc;}
   background-image: url("../images/time.png"),         linear-gradient(top, #FFFFFF, #f2f2f2)!important; /* W3C */
 
 }
+
+.rangeSlider {width: 77%; float: right;}
+.priceRangeInfo div.ui-slider{position: relative; left: 21px;} 
+.priceRangeInfo div.ui-slider .ui-btn-up-a{background: #ccc; border: 1px solid #aaa;}
+.priceRangeInfo div.ui-slider .ui-btn-hover-a{background: #ddd; border: 1px solid #ccc;} 
+.priceRangeInfo div:last-child {position: relative; top: -24px; left: 95px;}
+.priceRangeInfo #buying_slider_max{position: relative; left: 53px; width: 75px;}
+.priceRangeInfo #buying_slider_min{width: 75px; color:#666; text-shadow: none;}
+                  
 
 .profileStatus, .ui-field-contain div.ui-slider{width: 38%; }
 .ui-checkbox {width: 65%; margin-left: 1%!important;}
