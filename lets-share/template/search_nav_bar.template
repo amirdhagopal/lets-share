@@ -1,0 +1,6 @@
+<div data-role="navbar">
+  <ul>
+   <li><a href="/services" data-role="button" data-icon="star" data-iconpos="right">Services</a></li>
+  </ul>
+</div>
+

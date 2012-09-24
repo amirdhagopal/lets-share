@@ -1,6 +1,6 @@
 <div class="content-wrapper"><h2>Profile</h2></div>
 <div class="content-wrapper">
-	<form id="profile" action="/profile_submit" method="post">
+	<form id="profile" action="/profile" method="post">
 		<div data-role="fieldcontain">
        <label for="name" class="ui-input-text">Name:</label>
        <input type="text" name="name" placeholder="Your Name" maxlength="25" value="{{ name }}"></input>

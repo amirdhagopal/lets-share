@@ -1,5 +1,5 @@
 <div class="content-wrapper">
-	<form id="corporate" action="/corporate_submit" method="post">
+	<form id="corporate" action="/corporate" method="post">
 		<div data-role="fieldcontain">
        <label for="name" class="ui-input-text">Name:</label>
        <input type="text" name="name" placeholder="Corporate Name" maxlength="25" value="{{ name }}"></input>

@@ -1,8 +1,8 @@
 <div class="content-wrapper"><h2>Services</h2></div>
 <div class="content-wrapper">
 	<ul data-role="listview" data-theme="c" data-inset="true" >
-		<li><a href="/transport_list">Transport</a></li>
-		<li><a href="/accommodation_list">Accommodate</a></li>
+		<li><a href="/transport_list" rel="external">Transport</a></li>
+		<li><a href="/accommodation_list" rel="external">Accommodate</a></li>
 	</ul>
 	<br />
 </div>

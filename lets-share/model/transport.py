@@ -1,7 +1,7 @@
 from google.appengine.ext import db
 import logging
 from corporate import Corporate
-from profile import Profile
+from profile import Profile, ProfileDetail
 
 class Transport(db.Model):
 	profile = db.ReferenceProperty(Profile, collection_name="schedules")
@@ -24,8 +24,12 @@ class TransportDetail():
 	def get_transport(self, id):
 		return Transport.get_by_id(id)
 
+	def get_transports_for_profile(self, profile):
+		return Transport.all().filter('profile = ', profile).fetch(limit = 100)
+
 	def get_transports_for_corporates(self, corporate):
-		return Transport.all()
+		profiles = ProfileDetail().get_profiles_for_corporate(corporate)
+		return Transport.all().filter('profile IN ', profiles).fetch(limit = 100)
 
 	def save_transport(self, transportContent, transport):
 		if transport is None:

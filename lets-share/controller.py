@@ -30,32 +30,41 @@ jinja_environment = jinja2.Environment( loader = jinja2.FileSystemLoader(os.path
 html_path = 'html/'	
 template_path = 'template/'
 page_path =  html_path + 'page.html'
+template_suffix = '.template'
 
-class CommonUtils():
+class BaseHandler(webapp2.RequestHandler):
+    def get_current_profile(self):
+        user = users.get_current_user()
+        return  ProfileDetail().get_profile(user.user_id())
+
     def get_template_values(self):
         template_values = {}
         template_values['logout_url'] = users.create_logout_url("/")
+        template_values['header'] = users.get_current_user().nickname()
         return template_values
-
-class BaseHandler(webapp2.RequestHandler):
-    pass
         
+class HomeHandler(BaseHandler):
+    def get(self):
+        profile = self.get_current_profile()
+        if profile is not None:
+            self.redirect("/services")
+        else:
+            self.redirect("/profile")
+
+
 
 class ProfileHandler(BaseHandler):
     def get(self):
-    	template_values = CommonUtils().get_template_values()
-        user = users.get_current_user()
-        corporates = CorporateDetail().get_all_corporates()
-
-        profile = ProfileDetail().get_profile(user.user_id())
+    	template_values = self.get_template_values()
+        profile = self.get_current_profile()
         if profile is not None:
             for field in ProfileDetail().get_fields():
                 template_values[field] = getattr(profile, field)
         
-    	template_values['header'] = user.nickname()
+    	
     	template_values['page_title'] = 'Profile Details'
     	template_values['form_name'] = template_path + 'profile_form.template'
-        template_values['corporates'] = corporates
+        template_values['corporates'] = CorporateDetail().get_all_corporates()
 
     	template = jinja_environment.get_template(page_path)
     	self.response.out.write(template.render(template_values))
@@ -71,7 +80,7 @@ class ProfileHandler(BaseHandler):
 
         user = users.get_current_user()
 
-        profile = ProfileDetail().get_profile(user.user_id())
+        profile = self.get_current_profile()
 
         profileContent['user_id'] = user.user_id()
 
@@ -83,7 +92,17 @@ class ProfileHandler(BaseHandler):
 
 class TransportHandler(BaseHandler):
     def get(self):
-        template_values = CommonUtils().get_template_values()
+        profile = self.get_current_profile()
+        transportlist = TransportDetail().get_transports_for_profile(profile)
+        if not transportlist:
+            self.redirect("/transport_form")
+        else:
+            self.redirect("/transport_list?profile")
+
+
+class TransportFormHandler(BaseHandler):
+    def get(self):
+        template_values = self.get_template_values()
         
         transport_id_str = self.request.get('id')
         transport_id = (int(transport_id_str) if transport_id_str else 0)
@@ -96,7 +115,7 @@ class TransportHandler(BaseHandler):
             for field in TransportDetail().get_fields():
                 template_values[field] = getattr(transport, field)
         
-        template_values['header'] = users.get_current_user().nickname()
+        
         template_values['page_title'] = 'Transport Details'
         template_values['form_name'] = template_path + 'transport_form.template'
         
@@ -116,8 +135,7 @@ class TransportHandler(BaseHandler):
         for field in fields:
             transportContent[field] = cgi.escape(self.request.get(field))
 
-        user = users.get_current_user()
-        transportContent['profile'] = ProfileDetail().get_profile(user.user_id())
+        transportContent['profile'] = self.get_current_profile()
 
         logging.info(transportContent)
 
@@ -127,18 +145,31 @@ class TransportHandler(BaseHandler):
 
 class TransportListHandler(BaseHandler):
     def get(self):
-        template_values = CommonUtils().get_template_values()
-        template_values['header'] = users.get_current_user().nickname()
+        template_values = self.get_template_values()
+        profile = self.get_current_profile()
+        if 'profile' in self.request.arguments():
+            transports = TransportDetail().get_transports_for_profile(profile)
+            template_values['continue'] = 'accommodation'
+            template_values['nav_bar'] = template_path + 'profile_nav_bar.template'
+            template_values['mode'] = 'profile'
+            template_values['addnew'] = 'transport_form'
+            template_values['entity'] = 'Transport'
+        else:
+            transports = TransportDetail().get_transports_for_corporates(profile.corporate)
+            template_values['nav_bar'] = template_path + 'search_nav_bar.template'
+            template_values['mode'] = 'search'
+
+        
         template_values['page_title'] = 'Transport List'
         template_values['form_name'] = template_path + 'transport_list.template'
-        template_values['transports'] = TransportDetail().get_transports_for_corporates(None)
+        template_values['transports'] = transports
         template = jinja_environment.get_template(page_path)
         self.response.out.write(template.render(template_values))
 
 class AccommodationListHandler(BaseHandler):
     def get(self):
-        template_values = CommonUtils().get_template_values()
-        template_values['header'] = users.get_current_user().nickname()
+        template_values = self.get_template_values()
+        
         template_values['page_title'] = 'Accommodation List'
         template_values['form_name'] = template_path + 'accommodation_list.template'
         template_values['accommodations'] = AccommodationDetail().get_transports_for_corporates(None)
@@ -149,13 +180,12 @@ class AccommodationListHandler(BaseHandler):
 
 class AccommodationHandler(BaseHandler):
     def get(self):
-        user = users.get_current_user()
 
         accommodation_id_str = self.request.get('id')
         accommodation_id = (int(accommodation_id_str) if accommodation_id_str else 0)
         accommodation = None
 
-        template_values = CommonUtils().get_template_values()
+        template_values = self.get_template_values()
         if(accommodation_id != 0):
             accommodation = AccommodationDetail().get_accommodation(accommodation_id)
             template_values['accommodationid'] = accommodation_id
@@ -164,8 +194,6 @@ class AccommodationHandler(BaseHandler):
             for field in AccommodationDetail().get_fields():
                 template_values[field] = getattr(accommodation, field)
         
-        
-        template_values['header'] = user.nickname()
         template_values['page_title'] = 'Accommodation Details'
         template_values['form_name'] = template_path + 'accommodation_form.template'
         template = jinja_environment.get_template(page_path)
@@ -185,8 +213,7 @@ class AccommodationHandler(BaseHandler):
         for field in fields:
             accommodationContent[field] = cgi.escape(self.request.get(field))
 
-        user = users.get_current_user()
-        accommodationContent['profile'] = ProfileDetail().get_profile(user.user_id())
+        accommodationContent['profile'] = self.get_current_profile()
 
         AccommodationDetail().save_accommodation(accommodationContent, accommodation)
 
@@ -194,9 +221,9 @@ class AccommodationHandler(BaseHandler):
 
 class CorporateHandler(BaseHandler):
     def get(self):
-        user = users.get_current_user()
-        template_values = CommonUtils().get_template_values()
-        template_values['header'] = 'Corporate Details'
+        
+        template_values = self.get_template_values()
+        
         template_values['page_title'] = 'Corporate Details'
         template_values['form_name'] = template_path + 'corporate_form.template'
         template = jinja_environment.get_template(page_path)
@@ -214,9 +241,9 @@ class CorporateHandler(BaseHandler):
 
 class ServicesHandler(BaseHandler):
     def get(self):
-        user = users.get_current_user()
-        template_values = CommonUtils().get_template_values()
-        template_values['header'] = user.nickname()
+        
+        template_values = self.get_template_values()
+        
         template_values['page_title'] = 'Services'
         template_values['form_name'] = template_path + 'services_list.template'
         template = jinja_environment.get_template(page_path)

@@ -1,0 +1,8 @@
+<div data-role="navbar">
+  <ul>
+   <li><a href="/services" data-role="button" data-icon="star" data-iconpos="right">Services</a></li>
+   <li><a href="/{{ continue }}" data-role="button" data-icon="gear" data-iconpos="right">Continue</a></li>
+   <li><a href="/{{ addnew }}" data-role="button" data-icon="gear" data-iconpos="right">Add {{ entity }}</a></li>
+  </ul>
+</div>
+

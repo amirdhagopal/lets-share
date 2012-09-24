@@ -27,6 +27,10 @@ class ProfileDetail():
 
 		return selectedProfile
 
+	def get_profiles_for_corporate(self, corporate):
+		return Profile.all().filter('corporate = ', corporate).fetch(limit = 100)
+
+
 	def save_profile(self, profileContent, profile = Profile()):
 		if profile is None:
 			profile = Profile()

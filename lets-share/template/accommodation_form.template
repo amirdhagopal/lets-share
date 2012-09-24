@@ -1,6 +1,6 @@
 <div class="content-wrapper"><h2>Accommodation</h2></div>
 <div  class="content-wrapper">
-	<form id="accommodation" action="/accommodation_submit" method="post">
+	<form id="accommodation" action="/accommodation" method="post">
       <input type="hidden" name="accommodationid" value="{{ accommodationid }}">
       <div data-role="fieldcontain">
         <fieldset id="requirement" data-role="controlgroup" data-type="horizontal">
@@ -39,8 +39,8 @@
       <div data-role="fieldcontain" class="priceRangeInfo">
       <label for="buying_slider_min" class="ui-input-text">Price Range:</label>
       <span class="rangeSlider">
-      <input type="range" name="buying_slider_min" step="1000" data-highlight="true" id="buying_slider_min" class="minBuyingSlider" value="0" min="0" max="100000" data-theme="a" data-track-theme="b" value="{{ minbudget }}"/>
-      <input type="range" name="buying_slider_max" step="1000" data-highlight="true" id="buying_slider_max" class="maxBuyingSlider" value="100" min="0" max="100000" data-track-theme="b" value="{{ maxbudget }}"/>
+      <input type="range" name="buying_slider_min" step="500" data-highlight="true" id="buying_slider_min" class="minBuyingSlider" value="1000" min="0" max="100000" data-theme="a" data-track-theme="b" value="{{ minbudget }}"/>
+      <input type="range" name="buying_slider_max" step="500" data-highlight="true" id="buying_slider_max" class="maxBuyingSlider" value="10000" min="0" max="100000" data-track-theme="b" value="{{ maxbudget }}"/>
       </span>
       </div>
       <div data-role="fieldcontain">

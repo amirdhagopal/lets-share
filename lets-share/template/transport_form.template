@@ -1,6 +1,6 @@
 <div class="content-wrapper"><h2>Transport</h2></div>
 <div  class="content-wrapper">
-	<form id="transport" action="/transport_submit" method="post">
+	<form id="transport" action="/transport_form" method="post">
       <input type="hidden" name="transportid" value="{{ transportid }}">
       <div data-role="fieldcontain">
           <label for="city" class="ui-input-text">City:</label>
