@@ -1,0 +1,21 @@
+<div  class="content-wrapper">
+ <ul data-role="listview" data-inset="true" data-divider-theme="f">       
+      
+      {% for accommodation in accommodations %}
+      <li data-role="list-divider">
+            <h3> {{ accommodation.accommodationtype }} </h3>
+            <span class="ui-li-count"> {{ accommodation.requirement }} </span> 
+            <p> <b>Bedrooms:</b> {{ accommodation.bedrooms }} <b>Range:</b> {{ accommodation.minbudget }} to {{ accommodation.maxbudget }}
+
+            <p> <b>Locality:</b> {{ accommodation.locality }}</p>
+               Name: {{ accommodation.profile.name }} Phone: {{ accommodation.profile.phone }}
+               Email: {{ accommodation.profile.email }}        
+      </li>
+      {% endfor %}
+</ul>
+  <div data-role="navbar">
+  <ul>
+   <li><a href="/services" data-role="button" data-icon="star" data-iconpos="right">Services</a></li>
+  </ul>
+</div>
+</div>

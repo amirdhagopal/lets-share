@@ -1,58 +1,34 @@
 <div  class="content-wrapper">
-<!--   <div data-role="collapsible-set">
-      {% for transport in transports %}
-        <li>
-          <div data-role="collapsible" data-collapsed="true" data-iconpos="right" data-collapsed-icon="arrow-r">
-            <h3> {{ transport.origin }} - {{ transport.destination }} </h3>
-            <p> {{ transport.origin }} - {{ transport.destination }} - {{ transport.via }}
-            </p>
-          </div>
-        </li>
-      {% endfor %}
-  </div> -->
-    <!-- <div data-role="collapsible-set" data-theme="b" data-content-theme="d">
-
-    <ul data-role="listview">
-      {% for transport in transports %}
-        <li>
-            <h3> Origin: {{ transport.origin }}&nbsp;&nbsp;&nbsp;Destination: {{ transport.destination }} </h3>
-            <p> Via - {{ transport.via }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Time: {{ transport.departuretime }}</p>
-        </li>
-      {% endfor %}
-  </ul> -->
-
-  <!-- <div data-role="collapsible-set" data-theme="b" data-content-theme="d">
-      
-      
-      {% for transport in transports %}
-        <div data-role="collapsible">
-            <div> {{ transport.origin }} To {{ transport.destination }} <br/>
-             Via - {{ transport.via }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Time: {{ transport.departuretime }}</div>
-            
-        <ul data-role="listview">
-          <li>
-          <p> Extra Content </p>
-        </li>
-        </ul>        
-        </div>
-      {% endfor %}
- -->  
- 
  <ul data-role="listview" data-inset="true" data-divider-theme="f">       
       
       {% for transport in transports %}
       <li data-role="list-divider">
-        <div> {{ transport.origin }} To {{ transport.destination }} <br/>
-             <i>Via - {{ transport.via }}</i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Time: {{ transport.departuretime }}</div>
+            
+            <h3> {{ transport.origin }} To {{ transport.destination }} </h3>
+            <span class="ui-li-count"> {{ transport.departuretime }} </span> 
+            <p>Via - {{ transport.via }}</p>
+            
+             <ul>
+              <li>
+                <div class="content-wrapper">    
+                 <h3> {{ transport.origin }} To {{ transport.destination }} </h3>
+                 <p>Via - {{ transport.via }}</p>
+                
+                 Departure Time: <span> {{ transport.departuretime }} </span>  
+                 Vehicle: {{ transport.vehicletype }} Available Seats: {{ transport.availableseats }} <br/>
+                 Gender Preference: {{ transport.genderpreference }} <br/><br/> 
+                 Name: {{ transport.profile.name }} Phone: {{ transport.profile.phone }}
+                 Email: {{ transport.profile.email }}
+                 </div>
+             </li>
+             </ul>
+        
       </li>
-      <li>
-        
-        <div data-role="collapsible">
-          <p> Extra Content </p>
-        </div>
-        
-        </li>  
       {% endfor %}
 </ul>
-
+  <div data-role="navbar">
+  <ul>
+   <li><a href="/services" data-role="button" data-icon="star" data-iconpos="right">Services</a></li>
+  </ul>
+</div>
 </div>

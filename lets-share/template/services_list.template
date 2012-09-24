@@ -2,7 +2,7 @@
 <div class="content-wrapper">
 	<ul data-role="listview" data-theme="c" data-inset="true" >
 		<li><a href="/transport_list">Transport</a></li>
-		<li><a href="#">Accommodate</a></li>
+		<li><a href="/accommodation_list">Accommodate</a></li>
 	</ul>
 	<br />
 </div>

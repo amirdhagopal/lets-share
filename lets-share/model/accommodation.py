@@ -21,6 +21,9 @@ class AccommodationDetail():
 	def get_accommodation(self, id):
 		return Accommodation.get_by_id(id)
 
+	def get_transports_for_corporates(self, corporate):
+		return Accommodation.all()
+
 	def save_accommodation(self, accommodationContent, accommodation):
 		if accommodation is None:
 			accommodation = Accommodation()
