@@ -3,19 +3,20 @@
       
       {% for accommodation in accommodations %}
       <li data-role="list-divider">
+          <a href="#">
             <h3> {{ accommodation.accommodationtype }} </h3>
             <span class="ui-li-count"> {{ accommodation.requirement }} </span> 
             <p> <b>Bedrooms:</b> {{ accommodation.bedrooms }} <b>Range:</b> {{ accommodation.minbudget }} to {{ accommodation.maxbudget }}
 
             <p> <b>Locality:</b> {{ accommodation.locality }}</p>
                Name: {{ accommodation.profile.name }} Phone: {{ accommodation.profile.phone }}
-               Email: {{ accommodation.profile.email }}        
+               Email: {{ accommodation.profile.email }}  
+          </a>
+          {% if mode == 'profile' %}
+            <a href="/accommodation_form?id={{ accommodation.key().id() }}" data-icon="info"> Edit </a>
+          {% endif %}      
       </li>
       {% endfor %}
 </ul>
-  <div data-role="navbar">
-  <ul>
-   <li><a href="/services" data-role="button" data-icon="star" data-iconpos="right">Services</a></li>
-  </ul>
-</div>
+ {% include  nav_bar %}
 </div>

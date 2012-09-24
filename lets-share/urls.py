@@ -10,6 +10,7 @@ app = webapp2.WSGIApplication([(r'/profile', ProfileHandler),
 							   (r'/transport_list', TransportListHandler),
 							   
 							   (r'/accommodation', AccommodationHandler),
+							   (r'/accommodation_form', AccommodationFormHandler),
 							   (r'/accommodation_list', AccommodationListHandler),
 							   
 							   (r'/corporate', CorporateHandler),

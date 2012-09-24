@@ -169,16 +169,35 @@ class TransportListHandler(BaseHandler):
 class AccommodationListHandler(BaseHandler):
     def get(self):
         template_values = self.get_template_values()
+        profile = self.get_current_profile()
+        if 'profile' in self.request.arguments():
+            accommodations = AccommodationDetail().get_accommodations_for_profile(profile)
+            template_values['continue'] = 'services'
+            template_values['nav_bar'] = template_path + 'profile_nav_bar.template'
+            template_values['mode'] = 'profile'
+            template_values['addnew'] = 'accommodation_form'
+            template_values['entity'] = 'Accommodation'
+        else:
+            accommodations = AccommodationDetail().get_accommodations_for_corporates(profile.corporate)
+            template_values['nav_bar'] = template_path + 'search_nav_bar.template'
+            template_values['mode'] = 'search'
         
         template_values['page_title'] = 'Accommodation List'
         template_values['form_name'] = template_path + 'accommodation_list.template'
-        template_values['accommodations'] = AccommodationDetail().get_transports_for_corporates(None)
+        template_values['accommodations'] = accommodations
         template = jinja_environment.get_template(page_path)
         self.response.out.write(template.render(template_values))
 
-
-
 class AccommodationHandler(BaseHandler):
+    def get(self):
+        profile = self.get_current_profile()
+        accommodationlist = AccommodationDetail().get_accommodations_for_profile(profile)
+        if not accommodationlist:
+            self.redirect("/accommodation_form")
+        else:
+            self.redirect("/accommodation_list?profile")
+
+class AccommodationFormHandler(BaseHandler):
     def get(self):
 
         accommodation_id_str = self.request.get('id')

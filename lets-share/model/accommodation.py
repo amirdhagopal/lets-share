@@ -1,7 +1,7 @@
 from google.appengine.ext import db
 import logging
 from corporate import Corporate
-from profile import Profile
+from profile import Profile, ProfileDetail
 
 class Accommodation(db.Model):
 	profile = db.ReferenceProperty(Profile, collection_name="accommodations")
@@ -21,8 +21,13 @@ class AccommodationDetail():
 	def get_accommodation(self, id):
 		return Accommodation.get_by_id(id)
 
-	def get_transports_for_corporates(self, corporate):
-		return Accommodation.all()
+	def get_accommodations_for_profile(self, profile):
+		return Accommodation.all().filter('profile = ', profile).fetch(limit = 100)
+
+	def get_accommodations_for_corporates(self, corporate):
+		profiles = ProfileDetail().get_profiles_for_corporate(corporate)
+		return Accommodation.all().filter('profile IN ', profiles).fetch(limit = 100)
+
 
 	def save_accommodation(self, accommodationContent, accommodation):
 		if accommodation is None:
