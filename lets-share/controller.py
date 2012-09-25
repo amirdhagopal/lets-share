@@ -111,10 +111,11 @@ class TransportFormHandler(BaseHandler):
     def get(self):
         template_values = self.get_template_values()
         template_values['city'] = self.get_current_profile().city
+        template_values['isactive'] = True
         transport_id_str = self.request.get('id')
-        transport_id = (int(transport_id_str) if transport_id_str else 0)
+        transport_id = (int(transport_id_str) if transport_id_str else -1)
         transport = None
-        if(transport_id != 0):
+        if(transport_id != -1):
             transport = TransportDetail().get_transport(transport_id)
             template_values['transportid'] = transport_id
         
@@ -132,9 +133,9 @@ class TransportFormHandler(BaseHandler):
 
     def post(self):
         transportid_str = cgi.escape(self.request.get('transportid'))
-        transportid = (int(transportid_str) if transportid_str else 0)
+        transportid = (int(transportid_str) if transportid_str else -1)
         transport = None
-        if(transportid != 0):
+        if(transportid != -1):
             transport = TransportDetail().get_transport(transportid)
 
         fields = TransportDetail().get_field_names()
@@ -210,6 +211,7 @@ class AccommodationFormHandler(BaseHandler):
     def get(self):
         template_values = self.get_template_values()
         template_values['city'] = self.get_current_profile().city
+        template_values['isactive'] = True
         
         accommodation_id_str = self.request.get('id')
         accommodation_id = (int(accommodation_id_str) if accommodation_id_str else 0)
