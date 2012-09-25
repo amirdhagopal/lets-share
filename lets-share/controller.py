@@ -30,7 +30,6 @@ jinja_environment = jinja2.Environment( loader = jinja2.FileSystemLoader(os.path
 html_path = 'html/'	
 template_path = 'template/'
 page_path =  html_path + 'page.html'
-template_suffix = '.template'
 
 class BaseHandler(webapp2.RequestHandler):
     def get_current_profile(self):
@@ -51,13 +50,13 @@ class HomeHandler(BaseHandler):
         else:
             self.redirect("/profile")
 
-
-
 class ProfileHandler(BaseHandler):
     def get(self):
     	template_values = self.get_template_values()
         profile = self.get_current_profile()
+        template_values['email'] = users.get_current_user().email()
         if profile is not None:
+            template_values['mode'] = 'editprofile'
             for field in ProfileDetail().get_fields():
                 template_values[field] = getattr(profile, field)
         
@@ -103,7 +102,7 @@ class TransportHandler(BaseHandler):
 class TransportFormHandler(BaseHandler):
     def get(self):
         template_values = self.get_template_values()
-        
+        template_values['city'] = self.get_current_profile().city
         transport_id_str = self.request.get('id')
         transport_id = (int(transport_id_str) if transport_id_str else 0)
         transport = None
@@ -112,10 +111,10 @@ class TransportFormHandler(BaseHandler):
             template_values['transportid'] = transport_id
         
         if transport is not None:
-            for field in TransportDetail().get_fields():
+            for field in TransportDetail().get_field_names():
                 template_values[field] = getattr(transport, field)
         
-        
+        template_values['next'] = 'accommodation'
         template_values['page_title'] = 'Transport Details'
         template_values['form_name'] = template_path + 'transport_form.template'
         
@@ -130,7 +129,7 @@ class TransportFormHandler(BaseHandler):
         if(transportid != 0):
             transport = TransportDetail().get_transport(transportid)
 
-        fields = TransportDetail().get_fields()
+        fields = TransportDetail().get_field_names()
         transportContent = {}
         for field in fields:
             transportContent[field] = cgi.escape(self.request.get(field))
@@ -155,7 +154,8 @@ class TransportListHandler(BaseHandler):
             template_values['addnew'] = 'transport_form'
             template_values['entity'] = 'Transport'
         else:
-            transports = TransportDetail().get_transports_for_corporates(profile.corporate)
+            corporate = None if profile is None else profile.corporate
+            transports = TransportDetail().get_transports_for_corporates(corporate)
             template_values['nav_bar'] = template_path + 'search_nav_bar.template'
             template_values['mode'] = 'search'
 
@@ -178,7 +178,8 @@ class AccommodationListHandler(BaseHandler):
             template_values['addnew'] = 'accommodation_form'
             template_values['entity'] = 'Accommodation'
         else:
-            accommodations = AccommodationDetail().get_accommodations_for_corporates(profile.corporate)
+            corporate = None if profile is None else profile.corporate
+            accommodations = AccommodationDetail().get_accommodations_for_corporates(corporate)
             template_values['nav_bar'] = template_path + 'search_nav_bar.template'
             template_values['mode'] = 'search'
         
@@ -199,20 +200,23 @@ class AccommodationHandler(BaseHandler):
 
 class AccommodationFormHandler(BaseHandler):
     def get(self):
-
+        template_values = self.get_template_values()
+        template_values['city'] = self.get_current_profile().city
+        
         accommodation_id_str = self.request.get('id')
         accommodation_id = (int(accommodation_id_str) if accommodation_id_str else 0)
         accommodation = None
 
-        template_values = self.get_template_values()
+
         if(accommodation_id != 0):
             accommodation = AccommodationDetail().get_accommodation(accommodation_id)
             template_values['accommodationid'] = accommodation_id
         
         if accommodation is not None:
-            for field in AccommodationDetail().get_fields():
+            for field in AccommodationDetail().get_field_names():
                 template_values[field] = getattr(accommodation, field)
-        
+
+        template_values['next'] = 'services'
         template_values['page_title'] = 'Accommodation Details'
         template_values['form_name'] = template_path + 'accommodation_form.template'
         template = jinja_environment.get_template(page_path)
@@ -227,7 +231,7 @@ class AccommodationFormHandler(BaseHandler):
             accommodation = AccommodationDetail().get_accommodation(accommodationid)
         
         logging.info(accommodation)
-        fields = AccommodationDetail().get_fields()
+        fields = AccommodationDetail().get_field_names()
         accommodationContent = {}
         for field in fields:
             accommodationContent[field] = cgi.escape(self.request.get(field))

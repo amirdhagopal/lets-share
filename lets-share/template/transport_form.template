@@ -1,5 +1,11 @@
 <div class="content-wrapper"><h2>Transport</h2></div>
 <div  class="content-wrapper">
+<div data-role="navbar">
+  <ul>
+   <li><a href="/services" data-role="button" data-icon="star" data-iconpos="right">Services</a></li>
+   <li><a href="/{{ next }}" data-role="button" data-icon="gear" data-iconpos="right">Skip</a></li>
+  </ul>
+</div>
 	<form id="transport" action="/transport_form" method="post">
       <input type="hidden" name="transportid" value="{{ transportid }}">
       <div data-role="fieldcontain">
@@ -18,10 +24,6 @@
           <label for="via" class="ui-input-text">Via:</label>
           <input type="text" name="via" placeholder="Via" maxlength="150" value="{{ via }}"></input>
       </div>
-      <!--div data-role="fieldcontain">
-          <label for="departuretime" class="ui-input-text">Departure Time:</label>
-          <input type="text" id="departuretime" name="departuretime" maxlength="10" value="{{ departuretime }}"></input>
-      </div-->
       <div data-role="fieldcontain">
         <fieldset data-role="controlgroup">
           <label for="departuretime" class="ui-input-text">Departure Time:</label>
@@ -29,17 +31,6 @@
         </fieldset>
       </div>
   		<div data-role="fieldcontain">
-          <label for="frequency" class="ui-input-text">Frequency:</label>
-          <select name="frequency">
-            <optgroup label="once">
-              <option value="once">Once</option>
-            </optgroup>
-            <optgroup label="repeat">
-              <option value="monday">Once</option>
-            </optgroup>
-          </select>
-      </div>
-      <div data-role="fieldcontain">
           <fieldset id="vehicletype" data-role="controlgroup" data-type="vertical">
             <legend class="ui-input-text">Vehicle Type:</legend>
             <input type="checkbox" name="vehicletype" id="radio-view-a" value="two-wheeler" {% if vehicletype == 'two-wheeler' %} checked {% endif%}/>
@@ -72,10 +63,10 @@
       </div-->
       <div data-role="fieldcontain">
         <fieldset id="isactive" data-role="controlgroup" data-type="horizontal">
-          <label for="flip-1">Profile status:</label>
-          <select name="flip-1" id="flip-1" data-role="slider" class="profileStatus">
-            <option value="off">Inactive</option>
-            <option value="on" name="isactive" id="isactive" value="active" {% if isactive == 'active' %} checked {%endif%} >Active</option>
+          <label for="isactive">Profile status:</label>
+          <select name="isactive" id="isactive" data-role="slider" class="profileStatus">
+            <option value="False">Inactive</option>
+            <option value="True" name="isactive" id="isactive" {% if isactive == True %} selected {%endif%} >Active</option>
           </select> 
         </fieldset>
       </div>
@@ -83,9 +74,4 @@
         	<input type="button" data-theme="b" value="Submit" onclick="transportPage.submit()"/>
       	</div>
 	</form>
-  <div data-role="navbar">
-  <ul>
-   <li><a href="/services" data-role="button" data-icon="star" data-iconpos="right">Services</a></li>
-  </ul>
-</div>
 </div>

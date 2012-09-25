@@ -1,5 +1,12 @@
 <div class="content-wrapper"><h2>Profile</h2></div>
 <div class="content-wrapper">
+{% if mode == 'editprofile' %}
+<div data-role="navbar">
+  <ul>
+   <li><a href="/services" data-role="button" data-icon="star" data-iconpos="right">Services</a></li>
+  </ul>
+</div>
+{% endif %}
 	<form id="profile" action="/profile" method="post">
 		<div data-role="fieldcontain">
        <label for="name" class="ui-input-text">Name:</label>
@@ -48,9 +55,4 @@
      	<input type="button" data-theme="b" value="Submit" onclick="profilePage.submit()"/>
     </div>
 	</form>
-<div data-role="navbar">
-  <ul>
-   <li><a href="/services" data-role="button" data-icon="star" data-iconpos="right">Services</a></li>
-  </ul>
-</div>
 </div>

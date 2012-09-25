@@ -1,5 +1,11 @@
 <div class="content-wrapper"><h2>Accommodation</h2></div>
 <div  class="content-wrapper">
+  <div data-role="navbar">
+  <ul>
+   <li><a href="/services" data-role="button" data-icon="star" data-iconpos="right">Services</a></li>
+   <li><a href="/{{ next }}" data-role="button" data-icon="gear" data-iconpos="right">Skip</a></li>
+  </ul>
+</div>
 	<form id="accommodation" action="/accommodation_form" method="post">
       <input type="hidden" name="accommodationid" value="{{ accommodationid }}">
       <div data-role="fieldcontain">
@@ -37,10 +43,10 @@
         <input type="number" name="maxbudget" pattern="[0-9]*" placeholder="1000" min="0" max="100000" value="{{ maxbudget }}"/> 
       </div-->
       <div data-role="fieldcontain" class="priceRangeInfo">
-      <label for="buying_slider_min" class="ui-input-text">Price Range:</label>
+      <label for="minbudget" class="ui-input-text">Price Range:</label>
       <span class="rangeSlider">
-      <input type="range" name="buying_slider_min" step="500" data-highlight="true" id="buying_slider_min" class="minBuyingSlider" value="1000" min="0" max="100000" data-theme="a" data-track-theme="b" value="{{ minbudget }}"/>
-      <input type="range" name="buying_slider_max" step="500" data-highlight="true" id="buying_slider_max" class="maxBuyingSlider" value="10000" min="0" max="100000" data-track-theme="b" value="{{ maxbudget }}"/>
+      <input type="range" name="minbudget" step="500" data-highlight="true" id="minbudget" class="minBuyingSlider" value="1000" min="0" max="100000" data-theme="a" data-track-theme="b" value="{{ minbudget }}"/>
+      <input type="range" name="maxbudget" step="500" data-highlight="true" id="maxbudget" class="maxBuyingSlider" value="10000" min="0" max="100000" data-track-theme="b" value="{{ maxbudget }}"/>
       </span>
       </div>
       <div data-role="fieldcontain">
@@ -51,14 +57,18 @@
           <label for="city" class="ui-input-text">City:</label>
           <input type="text" id="city" name="city" placeholder="City" maxlength="15" value="{{ city }}"></input>
       </div>
+      <div data-role="fieldcontain">
+        <fieldset id="isactive" data-role="controlgroup" data-type="horizontal">
+          <label for="isactive">Profile status:</label>
+          <select name="isactive" id="isactive" data-role="slider" class="profileStatus">
+            <option value="False">Inactive</option>
+            <option value="True" name="isactive" id="isactive" value="active" {% if isactive == True %} selected {%endif%} >Active</option>
+          </select> 
+        </fieldset>
+      </div>
   		<div id="submitDiv" class="offset">
         	<input type="button" data-theme="b" value="Submit" onclick="accommodationPage.submit()"/>
       	</div>
 	</form>
-  <div data-role="navbar">
-  <ul>
-   <li><a href="/services" data-role="button" data-icon="star" data-iconpos="right">Services</a></li>
-  </ul>
-</div>
 </div>
 

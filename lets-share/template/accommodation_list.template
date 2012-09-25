@@ -1,4 +1,5 @@
 <div  class="content-wrapper">
+ {% include  nav_bar %}
  <ul data-role="listview" data-inset="true" data-divider-theme="f">       
       
       {% for accommodation in accommodations %}
@@ -18,5 +19,4 @@
       </li>
       {% endfor %}
 </ul>
- {% include  nav_bar %}
 </div>
