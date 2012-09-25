@@ -19,7 +19,7 @@ import webapp2
 import os
 import cgi
 import logging
-from google.appengine.api import users
+from google.appengine.api import users, memcache
 
 from model.profile import ProfileDetail
 from model.transport import TransportDetail
@@ -34,7 +34,15 @@ page_path =  html_path + 'page.html'
 class BaseHandler(webapp2.RequestHandler):
     def get_current_profile(self):
         user = users.get_current_user()
-        return  ProfileDetail().get_profile(user.user_id())
+        key = 'userid:%s' % user.user_id()
+        profile = memcache.get(key)
+        if profile is None:
+            logging.info('Profile Cache miss.')
+            profile = ProfileDetail().get_profile(user.user_id())
+            memcache.add(key, profile)
+        
+        return profile
+         
 
     def get_template_values(self):
         template_values = {}

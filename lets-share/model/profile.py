@@ -1,6 +1,7 @@
 from google.appengine.ext import db
 import logging
 from corporate import Corporate
+from properties import utils
 
 class Profile(db.Model):
 	name = db.StringProperty()
@@ -17,7 +18,8 @@ class Profile(db.Model):
 
 class ProfileDetail():
 	def get_fields(self):
-		return ['name', 'gender', 'phone', 'email', 'address', 'corporate', 'city', 'pincode', 'user_id']
+		return Profile.properties().keys()
+		
 
 	def get_profile(self, user_id):
 		q = Profile.gql("WHERE user_id = '"+user_id+"'")
@@ -35,8 +37,10 @@ class ProfileDetail():
 		if profile is None:
 			profile = Profile()
 
-		for field in self.get_fields():
-			logging.info("Setting Field : " + field)
-			setattr(profile, field, profileContent[field])
+		for name, property_type in Profile.properties().items():
+			logging.info("Setting Field : " + name)
+			value = utils.cast(profileContent[name], property_type)			
+
+			setattr(profile, name, value)
 
 		profile.put()

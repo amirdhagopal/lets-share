@@ -34,14 +34,6 @@
         <label for="bedrooms" class="ui-input-text">Bedrooms:</label>
         <input type="number" name="bedrooms" pattern="[1-9]" placeholder="1" min="1" max="9" value="{{ bedrooms }}"/> 
       </div>
-      <!--div data-role="fieldcontain">
-        <label for="minbudget" class="ui-input-text">Min Budget:</label>
-        <input type="number" name="minbudget" pattern="[0-9]*" placeholder="1000" min="0" max="100000" value="{{ minbudget }}"/> 
-      </div>
-      <div data-role="fieldcontain">
-        <label for="maxbudget" class="ui-input-text">Max Budget:</label>
-        <input type="number" name="maxbudget" pattern="[0-9]*" placeholder="1000" min="0" max="100000" value="{{ maxbudget }}"/> 
-      </div-->
       <div data-role="fieldcontain" class="priceRangeInfo">
       <label for="minbudget" class="ui-input-text">Price Range:</label>
       <span class="rangeSlider">
