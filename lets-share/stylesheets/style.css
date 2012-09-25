@@ -54,7 +54,7 @@ textarea.ui-input-text {height: 100px;}
 .ui-header {border-bottom: 5px solid #ccc;}
 .content-wrapper h1{font-size: 1.1em; margin: 0 0 10px 0; background: none repeat scroll 0 0 #CCCCCC; border-radius: 0 0 10px 10px; padding: 0 0 5px 10px;}
 .userTitle {width: 68%; float: right; font-size: 14px; margin-top: 45px; text-align: right; padding-right: 1%; font-weight: normal;color: #FFFFFF;}
-div.ui-header.ui-bar-b a.userTitle {color: #fff; font-weight: normal; text-decoration: none;}
+div.ui-header.ui-bar-b a.userTitle {color: #fff; font-weight: normal; text-decoration: none; font-size:0.8em;}
 .userTitle img{ margin-left: 1%;}
 .headerWrapperN { overflow: auto;}
 img {max-width: 100%}
@@ -118,11 +118,20 @@ input.ui-input-text, textarea.ui-input-text {background: #fcfcfc; border: 1px so
 
 .navbar {margin-bottom: 10px; margin-left: 5px;}
 .nav{border-radius: 10px; border-right: 1px solid #ccc!important;}
-.ui-block-a, .ui-block-b, .ui-block-c {width: 32.333%!important; margin-right: 1%!important;}
+.navbar .ui-focus, .navbar .ui-btn:focus {box-shadow: none!important;}
+.ui-block-a, .ui-block-b, .ui-block-c {width: 33.333%!important; margin-right: 0%!important;}
+.ui-block-a .nav{border-top-right-radius: 0; border-bottom-right-radius: 0;}
+.ui-block-b .nav{border-radius: 0; border-right: 1px solid #ddd;}
+.ui-block-c .nav{border-top-left-radius: 0; border-bottom-left-radius: 0;}
 .ui-grid-solo .ui-block-a {width: 100%!important;}
 .ui-grid-solo .ui-block-a a{border-radius: 10px!important; border-right: 1px solid #ccc!important;}
+.ui-grid-a .ui-block-a, .ui-grid-a .ui-block-b{width: 49%!important;}
+.ui-btn-icon-top .ui-btn-inner {padding-top:25px;}
+.ui-btn-icon-top .ui-icon {top: 5px;}
 
 .ui-listview-filter-inset, .ui-listview-filter {margin: auto!important;}
+
+.ui-li-has-count .ui-li-count {margin-right: 10px;font-size: 1em; font-weight: normal; text-transform: capitalize;}
 
 .ui-footer {margin-top: 10px;}
 .ui-footer center {font-size: 12px; padding: 10px 0 10px 0;}

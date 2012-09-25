@@ -13,7 +13,7 @@
           </a>
           
           {% if mode == 'profile' %}
-            <a href="/transport_form?id={{ transport.key().id() }}" data-icon="info"> Edit </a>
+            <a href="/transport_form?id={{ transport.key().id() }}" data-icon="edit"> Edit </a>
           {% endif %}
              <ul>
               <li>

@@ -17,7 +17,7 @@
           </a>
 
           {% if mode == 'profile' %}
-            <a href="/accommodation_form?id={{ accommodation.key().id() }}" data-icon="info"> Edit </a>
+            <a href="/accommodation_form?id={{ accommodation.key().id() }}" data-icon="edit"> Edit </a>
           {% endif %}      
       </li>
       {% endfor %}

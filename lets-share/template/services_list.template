@@ -1,8 +1,8 @@
 <div class="content-wrapper"><h1>Services</h1></div>
 <div class="content-wrapper">
-	<div data-role="navbar">
+	<div data-role="navbar" class="navbar">
 		<ul>
-			<li><a href="/profile" data-role="button" data-icon="star" data-iconpos="right">My Profile</a></li>
+			<li><a href="/profile" data-role="button" data-icon="star" data-iconpos="right" class="nav">My Profile</a></li>
 		</ul>
 	</div>
 	<ul data-role="listview" data-theme="c" data-inset="true" >
