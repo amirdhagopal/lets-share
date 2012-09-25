@@ -1,4 +1,4 @@
-<div class="content-wrapper"><h2>Transport</h2></div>
+<div class="content-wrapper"><h1>Transport</h1></div>
 <div  class="content-wrapper">
 <div data-role="navbar">
   <ul>
@@ -33,9 +33,9 @@
   		<div data-role="fieldcontain">
           <fieldset id="vehicletype" data-role="controlgroup" data-type="vertical">
             <legend class="ui-input-text">Vehicle Type:</legend>
-            <input type="checkbox" name="vehicletype" id="radio-view-a" value="two-wheeler" {% if vehicletype == 'two-wheeler' %} checked {% endif%}/>
+            <input type="radio" name="vehicletype" id="radio-view-a" value="two-wheeler" {% if vehicletype == 'two-wheeler' %} checked {% endif%}/>
             <label for="radio-view-a">Two-Wheeler</label>
-            <input type="checkbox" name="vehicletype" id="radio-view-b" value="four-wheeler" {% if vehicletype == 'four-wheeler' %} checked {% endif%}/>
+            <input type="radio" name="vehicletype" id="radio-view-b" value="four-wheeler" {% if vehicletype == 'four-wheeler' %} checked {% endif%}/>
             <label for="radio-view-b">Four-Wheeler</label>
           </fieldset>
       </div>

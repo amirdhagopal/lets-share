@@ -1,4 +1,4 @@
-<div class="content-wrapper"><h2>Profile</h2></div>
+<div class="content-wrapper"><h1>Profile</h1></div>
 <div class="content-wrapper">
 {% if mode == 'editprofile' %}
 <div data-role="navbar">
