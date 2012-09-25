@@ -1,9 +1,9 @@
 <div class="content-wrapper"><h1>Accommodation</h1></div>
 <div  class="content-wrapper">
-  <div data-role="navbar">
+  <div data-role="navbar" class="navbar">
   <ul>
-   <li><a href="/services" data-role="button" data-icon="star" data-iconpos="right">Services</a></li>
-   <li><a href="/{{ next }}" data-role="button" data-icon="gear" data-iconpos="right">Skip</a></li>
+   <li><a href="/services" data-role="button" data-icon="star" data-iconpos="right" class="nav">Services</a></li>
+   <li><a href="/{{ next }}" data-role="button" data-icon="gear" data-iconpos="right" class="nav">Skip</a></li>
   </ul>
 </div>
 	<form id="accommodation" action="/accommodation_form" method="post">

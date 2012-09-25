@@ -122,6 +122,8 @@ input.ui-input-text, textarea.ui-input-text {background: #fcfcfc; border: 1px so
 .ui-grid-solo .ui-block-a {width: 100%!important;}
 .ui-grid-solo .ui-block-a a{border-radius: 10px!important; border-right: 1px solid #ccc!important;}
 
+.ui-listview-filter-inset, .ui-listview-filter {margin: auto!important;}
+
 .ui-footer {margin-top: 10px;}
 .ui-footer center {font-size: 12px; padding: 10px 0 10px 0;}
 
