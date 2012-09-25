@@ -52,7 +52,7 @@ textarea.ui-input-text {height: 100px;}
 .letsshareLogo { width: 30%; float: left;}
 
 .ui-header {border-bottom: 5px solid #ccc;}
-.content-wrapper h1{font-size: 1.1em; margin: 0; background: none repeat scroll 0 0 #CCCCCC; border-radius: 0 0 10px 10px; padding: 0 0 5px 10px;}
+.content-wrapper h1{font-size: 1.1em; margin: 0 0 10px 0; background: none repeat scroll 0 0 #CCCCCC; border-radius: 0 0 10px 10px; padding: 0 0 5px 10px;}
 .userTitle {width: 68%; float: right; font-size: 14px; margin-top: 45px; text-align: right; padding-right: 1%; font-weight: normal;color: #FFFFFF;}
 div.ui-header.ui-bar-b a.userTitle {color: #fff; font-weight: normal; text-decoration: none;}
 .userTitle img{ margin-left: 1%;}
@@ -114,7 +114,14 @@ input.ui-input-text, textarea.ui-input-text {background: #fcfcfc; border: 1px so
                   
 
 .profileStatus, .ui-field-contain div.ui-slider{width: 38%; }
-.ui-checkbox, .ui-radio {width: 65%; margin-left: 1%!important;}
+.ui-checkbox {width: 65%; margin-left: 1%!important;}
 
+.navbar {margin-bottom: 10px; margin-left: 5px;}
+.nav{border-radius: 10px; border-right: 1px solid #ccc!important;}
+.ui-block-a, .ui-block-b, .ui-block-c {width: 32.333%!important; margin-right: 1%!important;}
+.ui-grid-solo .ui-block-a {width: 100%!important;}
+.ui-grid-solo .ui-block-a a{border-radius: 10px!important; border-right: 1px solid #ccc!important;}
+
+.ui-footer {margin-top: 10px;}
 .ui-footer center {font-size: 12px; padding: 10px 0 10px 0;}
 

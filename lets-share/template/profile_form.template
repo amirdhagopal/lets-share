@@ -17,8 +17,6 @@
         <legend class="ui-input-text">Gender</legend>
         <input type="radio" name="gender" id="radio-view-a" value="male" {% if gender == 'male' %} checked {% endif%} />
         <label for="radio-view-a" class="nui-corner-left n-align">Male</label>
-        <input type="radio" name="gender" id="radio-view-b" value="transgender" {% if gender == 'transgender' %} checked {% endif%}/>
-        <label for="radio-view-b" class="nui-corner-middle">Transgender</label>
         <input type="radio" name="gender" id="radio-view-c" value="female" {% if gender == 'female' %} checked {% endif%}/>
         <label for="radio-view-c" class="nui-corner-right">Female</label>
       </fieldset>

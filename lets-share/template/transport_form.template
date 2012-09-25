@@ -48,8 +48,6 @@
             <legend class="ui-input-text">Gender Preference:</legend>
             <input type="checkbox" data-icon="plus" name="genderpreference" id="radio-view-a" value="male" {% if genderpreference == 'male' %} checked {% endif%} />
             <label for="radio-view-a">Male</label>
-            <input type="checkbox" data-icon="plus" name="genderpreference" id="radio-view-b" value="transgender" {% if genderpreference == 'transgender' %} checked {% endif%} />
-            <label for="radio-view-b">Transgender</label>
             <input type="checkbox" data-icon="plus" name="genderpreference" id="radio-view-c" value="female" {% if genderpreference == 'female' %} checked {% endif%}/>
             <label for="radio-view-c">Female</label>
         </fieldset>
