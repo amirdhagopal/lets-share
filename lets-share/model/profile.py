@@ -5,7 +5,7 @@ from properties import utils
 
 class Profile(db.Model):
 	name = db.StringProperty()
-	gender = db.StringProperty(choices=['male','female','transgender'])
+	gender = db.StringProperty(choices=['male','female'])
 	phone = db.StringProperty()
 	email = db.EmailProperty()
 	address = db.StringProperty()
