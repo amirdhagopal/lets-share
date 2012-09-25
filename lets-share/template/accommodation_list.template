@@ -1,9 +1,10 @@
 <div  class="content-wrapper">
  {% include  nav_bar %}
- <ul data-role="listview" data-inset="true" data-divider-theme="f">       
+ <ul data-role="listview" data-inset="true" data-divider-theme="f" data-filter="true">       
       
       {% for accommodation in accommodations %}
-      <li data-role="list-divider">
+      <li>
+
           <a href="#">
             <h3> {{ accommodation.accommodationtype }} </h3>
             <span class="ui-li-count"> {{ accommodation.requirement }} </span> 
@@ -13,6 +14,7 @@
                Name: {{ accommodation.profile.name }} Phone: {{ accommodation.profile.phone }}
                Email: {{ accommodation.profile.email }}  
           </a>
+
           {% if mode == 'profile' %}
             <a href="/accommodation_form?id={{ accommodation.key().id() }}" data-icon="info"> Edit </a>
           {% endif %}      

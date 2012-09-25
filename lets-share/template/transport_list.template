@@ -1,14 +1,16 @@
 <div  class="content-wrapper">
  {% include  nav_bar %}
- <ul data-role="listview" data-inset="true" data-divider-theme="f">       
+ <ul data-role="listview" data-inset="true" data-divider-theme="f" data-filter="true">       
       
       {% for transport in transports %}
-      <li data-role="list-divider">
-            <a href="#">
+      <li>
+          
+          <a href="#">
             <h3> {{ transport.origin }} To {{ transport.destination }} </h3>
             <span class="ui-li-count"> {{ transport.departuretime }} </span> 
             <p>Via - {{ transport.via }}</p>
           </a>
+          
           {% if mode == 'profile' %}
             <a href="/transport_form?id={{ transport.key().id() }}" data-icon="info"> Edit </a>
           {% endif %}
