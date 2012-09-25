@@ -42,8 +42,12 @@
        <textarea id="address" name="address" rows="3" cols="60" maxlength="2500" placeholder="Your Contact Address">{{ address }}</textarea>
     </div>
     <div data-role="fieldcontain">
-       <label for="city" class="ui-input-text">City:</label>
-       <input type="text" name="city" placeholder="City" maxlength="10" value="{{ city }}"></input>
+      <label for="city" class="ui-input-text">City:</label>
+      <select id="city" name="city" data-native-menu="false">
+        {% for city_name in cities %}
+             <option value="{{city_name}}" {% if city == city_name %} selected {% endif%}> {{city_name}} </option>
+        {% endfor %}
+        </select>
     </div>
     <div data-role="fieldcontain">
        <label for="pincode" class="ui-input-text">Pincode:</label>

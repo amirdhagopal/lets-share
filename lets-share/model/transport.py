@@ -13,7 +13,7 @@ class Transport(db.Model):
 	departuretime = db.StringProperty()
 	vehicletype=db.StringProperty( choices=['two-wheeler','four-wheeler'])
 	availableseats=db.IntegerProperty()
-	genderpreference = db.StringProperty( choices=['male','female','transgender'])
+	genderpreference = db.ListProperty(str)
 	isactive = db.BooleanProperty()
 
 

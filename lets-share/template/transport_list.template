@@ -23,7 +23,7 @@
                 
                  Departure Time: <span> {{ transport.departuretime }} </span>  
                  Vehicle: {{ transport.vehicletype }} Available Seats: {{ transport.availableseats }} <br/>
-                 Gender Preference: {{ transport.genderpreference }} <br/><br/> 
+                 Gender Preference: {{ transport.genderpreference | join(',')}} <br/><br/> 
                  Name: {{ transport.profile.name }} Phone: {{ transport.profile.phone }}
                  Email: {{ transport.profile.email }}
                  </div>

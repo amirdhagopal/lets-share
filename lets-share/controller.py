@@ -26,6 +26,7 @@ from model.transport import TransportDetail
 from model.accommodation import AccommodationDetail
 from model.corporate import CorporateDetail
 
+
 jinja_environment = jinja2.Environment( loader = jinja2.FileSystemLoader(os.path.dirname(__file__) ))
 html_path = 'html/'	
 template_path = 'template/'
@@ -63,6 +64,9 @@ class ProfileHandler(BaseHandler):
     	template_values = self.get_template_values()
         profile = self.get_current_profile()
         template_values['email'] = users.get_current_user().email()
+        template_values['name'] = users.get_current_user().nickname().split("@")[0]
+        template_values['gender'] = 'female'
+        template_values['cities'] = CorporateDetail().get_cities()
         if profile is not None:
             template_values['mode'] = 'editprofile'
             for field in ProfileDetail().get_fields():
@@ -110,7 +114,13 @@ class TransportHandler(BaseHandler):
 class TransportFormHandler(BaseHandler):
     def get(self):
         template_values = self.get_template_values()
+        template_values['cities'] = CorporateDetail().get_cities()
         template_values['city'] = self.get_current_profile().city
+        template_values['vehicletype'] = 'four-wheeler'
+        template_values['availableseats'] = 2
+        template_values['genderpreference'] = ['male','female']
+        template_values['departuretime'] = "08:30"
+
         template_values['isactive'] = True
         transport_id_str = self.request.get('id')
         transport_id = (int(transport_id_str) if transport_id_str else -1)
@@ -142,6 +152,8 @@ class TransportFormHandler(BaseHandler):
         transportContent = {}
         for field in fields:
             transportContent[field] = cgi.escape(self.request.get(field))
+
+        transportContent['genderpreference'] = self.request.get_all('genderpreference')
 
         transportContent['profile'] = self.get_current_profile()
 
@@ -211,8 +223,14 @@ class AccommodationHandler(BaseHandler):
 class AccommodationFormHandler(BaseHandler):
     def get(self):
         template_values = self.get_template_values()
+        template_values['cities'] = CorporateDetail().get_cities()
         template_values['city'] = self.get_current_profile().city
         template_values['isactive'] = True
+        template_values['bedrooms'] = 2
+        template_values['requirement'] = 'rent'
+        template_values['accommodationtype'] = 'apartment'
+        template_values['minbudget'] = 5000
+        template_values['maxbudget'] = 30000
         
         accommodation_id_str = self.request.get('id')
         accommodation_id = (int(accommodation_id_str) if accommodation_id_str else 0)

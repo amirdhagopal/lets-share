@@ -9,9 +9,13 @@
 	<form id="transport" action="/transport_form" method="post">
       <input type="hidden" name="transportid" value="{{ transportid }}">
       <div data-role="fieldcontain">
-          <label for="city" class="ui-input-text">City:</label>
-          <input type="text" name="city" placeholder="City" maxlength="150" value="{{ city }}"></input>
-      </div>      
+      <label for="city" class="ui-input-text">City:</label>
+      <select id="city" name="city" data-native-menu="false">
+        {% for city_name in cities %}
+             <option value="{{city_name}}" {% if city == city_name %} selected {% endif%}> {{city_name}} </option>
+        {% endfor %}
+        </select>
+    </div>
 		  <div data-role="fieldcontain">
         	<label for="from" class="ui-input-text">Origin:</label>
         	<input type="text" name="origin" placeholder="Origin" maxlength="25" value="{{ origin }}"></input>
@@ -46,19 +50,12 @@
       <div data-role="fieldcontain">
         <fieldset id="genderpreference" data-role="controlgroup" data-type="vertical">
             <legend class="ui-input-text">Gender Preference:</legend>
-            <input type="checkbox" data-icon="plus" name="genderpreference" id="radio-view-a" value="male" {% if genderpreference == 'male' %} checked {% endif%} />
+            <input type="checkbox" data-icon="plus" name="genderpreference" id="radio-view-a" value="male" {% if 'male' in genderpreference %} checked {% endif%} />
             <label for="radio-view-a">Male</label>
-            <input type="checkbox" data-icon="plus" name="genderpreference" id="radio-view-c" value="female" {% if genderpreference == 'female' %} checked {% endif%}/>
+            <input type="checkbox" data-icon="plus" name="genderpreference" id="radio-view-c" value="female" {% if 'female' in genderpreference %} checked {% endif%}/>
             <label for="radio-view-c">Female</label>
         </fieldset>
       </div>
-      <!--div data-role="fieldcontain">
-        <fieldset id="isactive" data-role="controlgroup" data-type="horizontal">
-            <legend class="ui-input-text">Profile status</legend>
-            <input type="checkbox" name="isactive" id="isactive" value="active" {% if isactive == 'active' %} checked {%endif%}/>
-            <label for="isactive">Active</label>
-        </fieldset>
-      </div-->
       <div data-role="fieldcontain">
         <fieldset id="isactive" data-role="controlgroup" data-type="horizontal">
           <label for="isactive">Profile status:</label>
