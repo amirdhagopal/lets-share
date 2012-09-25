@@ -168,6 +168,7 @@ class TransportListHandler(BaseHandler):
 
         template_values['addnew'] = 'transport_form'
         template_values['entity'] = 'Transport'
+        template_values['showme'] = 'transport'
         template_values['page_title'] = 'Transport List'
         template_values['form_name'] = template_path + 'transport_list.template'
         template_values['transports'] = transports
@@ -190,6 +191,7 @@ class AccommodationListHandler(BaseHandler):
             template_values['mode'] = 'search'
         
         template_values['addnew'] = 'accommodation_form'
+        template_values['showme'] = 'accommodation'
         template_values['entity'] = 'Accommodation'
         template_values['page_title'] = 'Accommodation List'
         template_values['form_name'] = template_path + 'accommodation_list.template'

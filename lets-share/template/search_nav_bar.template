@@ -2,6 +2,7 @@
   <ul>
    <li><a href="/services" data-role="button" data-icon="star" data-iconpos="right" class="nav">Services</a></li>
    <li><a href="/{{ addnew }}" data-role="button" data-icon="gear" data-iconpos="right" class="nav">Add {{ entity }}</a></li>
+   <li><a href="/{{ showme }}" data-role="button" data-icon="gear" data-iconpos="right" class="nav">My {{ entity }}(s)</a></li>
   </ul>
 </div>
 
