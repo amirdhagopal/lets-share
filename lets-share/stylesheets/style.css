@@ -52,6 +52,7 @@ textarea.ui-input-text {height: 100px;}
 .letsshareLogo { width: 30%; float: left;}
 
 .ui-header {border-bottom: 5px solid #ccc;}
+h1.ui-title {font-size: 12px!important;}
 .content-wrapper h1{font-size: 1.3em; margin: 0 0 10px 0; background: none repeat scroll 0 0 #CCCCCC; border-radius: 0 0 10px 10px; padding: 0 0 5px 10px; color:#666; text-shadow: 0 1px 0 #EEEEFF; font-weight:normal;}
 .userTitle {width: 68%; float: right; font-size: 14px; margin-top: 45px; text-align: right; padding-right: 1%; font-weight: normal;color: #FFFFFF;}
 div.ui-header.ui-bar-b a.userTitle {color: #fff; font-weight: normal; text-decoration: none; font-size:0.88em;}
