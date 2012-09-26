@@ -120,9 +120,9 @@ input.ui-input-text, textarea.ui-input-text {background: #fcfcfc; border: 1px so
 .nav{border-radius: 10px; border-right: 1px solid #ccc!important;}
 .navbar .ui-focus, .navbar .ui-btn:focus {box-shadow: none!important;}
 .ui-block-a, .ui-block-b, .ui-block-c {width: 33.333%!important; margin-right: 0%!important;}
-.ui-block-a .nav{border-top-right-radius: 0; border-bottom-right-radius: 0;}
-.ui-block-b .nav{border-radius: 0; border-right: 1px solid #ddd;}
-.ui-block-c .nav{border-top-left-radius: 0; border-bottom-left-radius: 0;}
+.ui-block-a .nav{border-top-right-radius: 0; border-bottom-right-radius: 0; border-right: 1px solid #338837!important;}
+.ui-block-b .nav{border-radius: 0; border-right: 1px solid #ddd; border-left: 1px solid #74d778!important; border-right: 1px solid #338837!important;}
+.ui-block-c .nav{border-top-left-radius: 0; border-bottom-left-radius: 0; border-left: 1px solid #74d778!important;}
 .ui-grid-solo .ui-block-a {width: 100%!important;}
 .ui-grid-solo .ui-block-a a{border-radius: 10px!important; border-right: 1px solid #ccc!important;}
 .ui-grid-a .ui-block-a, .ui-grid-a .ui-block-b{width: 49%!important;}
