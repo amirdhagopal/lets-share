@@ -27,7 +27,7 @@
             <p><b>Range: </b> Rs:{{ accommodation.minbudget }} to Rs:{{ accommodation.maxbudget }}</p>
             <p class="accomLocality" style="width: 100%"> <b>Locality:</b> {{ accommodation.locality }}</p>
             <p style="width: 80%; height:1px; border-bottom:1px solid #ccc; margin-bottom: 10px;"></p>
-            <br /><hr >
+            <br />
             <p><b>Name:</b> {{ accommodation.profile.name }}</p>
             <p><b>Phone:</b> <a href="tel:{{ accommodation.profile.phone }}">{{ accommodation.profile.phone }}</a></p>
             <p><b>Email:</b> <a href="mailto:{{ accommodation.profile.email }}">{{ accommodation.profile.email }}</a></p>
