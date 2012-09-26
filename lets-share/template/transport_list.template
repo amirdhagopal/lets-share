@@ -7,25 +7,26 @@
       <li>
           
           <a href="#">
-            <h3> {{ transport.origin }} To {{ transport.destination }} </h3>
-            <span class="ui-li-count"> {{ transport.departuretime }} </span> 
-            <p>Via - {{ transport.via }}</p>
+            <h3 class="transportTitle"> {{ transport.origin }} to {{ transport.destination }} </h3>
+            <span class="ui-li-count time"> {{ transport.departuretime }} </span> 
+            <p class="transportVia">Via - {{ transport.via }}</p>
           </a>
           
           {% if mode == 'profile' %}
-            <a href="/transport_form?id={{ transport.key().id() }}" data-icon="edit"> Edit </a>
+            <a href="/transport_form?id={{ transport.key().id() }}" class="edit" data-icon"false"> Edit </a>
           {% endif %}
              <ul>
-              <li>
+              <li style="overflow: auto;">
                 <div class="content-wrapper">    
-                 <h3> {{ transport.origin }} To {{ transport.destination }} </h3>
-                 <p>Via - {{ transport.via }}</p>
+                 <h3 class="transportTitle"> {{ transport.origin }} To {{ transport.destination }} </h3>
+                 <p class="transportVia">Via - {{ transport.via }}</p>
                 
-                 Departure Time: <span> {{ transport.departuretime }} </span>  
-                 Vehicle: {{ transport.vehicletype }} Available Seats: {{ transport.availableseats }} <br/>
-                 Gender Preference: {{ transport.genderpreference | join(',')}} <br/><br/> 
-                 Name: {{ transport.profile.name }} Phone: {{ transport.profile.phone }}
-                 Email: {{ transport.profile.email }}
+                 <p><b>Departure Time:</b> <span> {{ transport.departuretime }} </span></p>
+                 <p class="n-cap"><b>Vehicle:</b> {{ transport.vehicletype }}<p>
+                 <p><b>Available Seats:</b> {{ transport.availableseats }}</p>
+                 <p class="n-cap"><b>Name:</b> {{ transport.profile.name }}</p>
+                 <p><b>Phone:</b> {{ transport.profile.phone }}</p>
+                 <p><b>Email:</b> {{ transport.profile.email }}</p>
                  </div>
              </li>
              </ul>

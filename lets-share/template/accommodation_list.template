@@ -7,17 +7,19 @@
       <li>
 
           <a href="#">
-            <h3> {{ accommodation.accommodationtype }} </h3>
+            <h3 class="accomTitle"> {{ accommodation.accommodationtype }} </h3>
             <span class="ui-li-count"> {{ accommodation.requirement }} </span> 
-            <p> <b>Bedrooms:</b> {{ accommodation.bedrooms }} <b>Range:</b> {{ accommodation.minbudget }} to {{ accommodation.maxbudget }}
+            <p><b>Bedrooms:</b> {{ accommodation.bedrooms }} </p>
+            <p><b>Range: </b> Rs:{{ accommodation.minbudget }} to Rs:{{ accommodation.maxbudget }}</p>
 
-            <p> <b>Locality:</b> {{ accommodation.locality }}</p>
-               Name: {{ accommodation.profile.name }} Phone: {{ accommodation.profile.phone }}
-               Email: {{ accommodation.profile.email }}  
+            <p class="accomLocality"> <b>Locality:</b> {{ accommodation.locality }}</p>
+            <p><b>Name:</b> {{ accommodation.profile.name }}</p>
+            <p><b>Phone:</b> {{ accommodation.profile.phone }}</p>
+            <p><b>Email:</b> {{ accommodation.profile.email }}</p> 
           </a>
 
           {% if mode == 'profile' %}
-            <a href="/accommodation_form?id={{ accommodation.key().id() }}" data-icon="edit"> Edit </a>
+            <a href="/accommodation_form?id={{ accommodation.key().id() }}" class="edit" data-icon"false"> Edit </a>
           {% endif %}      
       </li>
       {% endfor %}

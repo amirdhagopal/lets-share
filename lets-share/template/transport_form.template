@@ -2,8 +2,8 @@
 <div  class="content-wrapper">
 <div data-role="navbar" class="navbar">
   <ul>
-   <li><a href="/services" data-role="button" data-icon="star" data-iconpos="right" class="nav">Services</a></li>
-   <li><a href="/{{ next }}" data-role="button" data-icon="minus" data-iconpos="right" class="nav">Skip</a></li>
+   <li><a href="/services" data-role="button" data-icon="star" data-iconpos="right" data-theme="b" class="nav">Services</a></li>
+   <li><a href="/{{ next }}" data-role="button" data-icon="minus" data-iconpos="right" data-theme="b" class="nav">Skip</a></li>
   </ul>
 </div>
 	<form id="transport" action="/transport_form" method="post">

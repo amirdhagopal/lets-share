@@ -3,7 +3,7 @@
 {% if mode == 'editprofile' %}
 <div data-role="navbar" class="navbar">
   <ul>
-   <li><a href="/services" data-role="button" data-icon="star" data-iconpos="right" class="nav">Services</a></li>
+   <li><a href="/services" data-role="button" data-icon="star" data-iconpos="right" data-theme="b" class="nav">Services</a></li>
   </ul>
 </div>
 {% endif %}

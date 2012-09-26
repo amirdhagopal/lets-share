@@ -1,8 +1,8 @@
 <div data-role="navbar" class="navbar">
   <ul>
-   <li><a href="/services" data-role="button" data-icon="star" data-iconpos="right" class="nav">Services</a></li>
-   <li><a href="/{{ addnew }}" data-role="button" data-icon="plus" data-iconpos="right" class="nav">Add {{ entity }}</a></li>
-   <li><a href="/{{ showme }}" data-role="button" data-icon="gear" data-iconpos="right" class="nav">My {{ entity }}(s)</a></li>
+   <li><a href="/services" data-role="button" data-icon="star" data-iconpos="right" data-theme="b" class="nav">Services</a></li>
+   <li><a href="/{{ addnew }}" data-role="button" data-icon="plus" data-iconpos="right" data-theme="b" class="nav">Add {{ entity }}</a></li>
+   <li><a href="/{{ showme }}" data-role="button" data-icon="gear" data-iconpos="right" data-theme="b" class="nav">My {{ entity }}(s)</a></li>
   </ul>
 </div>
 
