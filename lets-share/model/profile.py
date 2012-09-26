@@ -8,7 +8,7 @@ class Profile(db.Model):
 	gender = db.StringProperty(choices=['male','female'])
 	phone = db.StringProperty()
 	email = db.EmailProperty()
-	address = db.StringProperty()
+	address = db.TextProperty()
 	corporate = db.ReferenceProperty(Corporate, collection_name="profiles")
 	city = db.StringProperty()
 	pincode = db.StringProperty()
