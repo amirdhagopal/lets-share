@@ -12,15 +12,27 @@
             <p><b>Bedrooms:</b> {{ accommodation.bedrooms }} </p>
             <p><b>Range: </b> Rs:{{ accommodation.minbudget }} to Rs:{{ accommodation.maxbudget }}</p>
 
-            <p class="accomLocality"> <b>Locality:</b> {{ accommodation.locality }}</p>
-            <p><b>Name:</b> {{ accommodation.profile.name }}</p>
-            <p><b>Phone:</b> <a href="tel:{{ accommodation.profile.phone }}">{{ accommodation.profile.phone }}</a></p>
-            <p><b>Email:</b> <a href="mailto:{{ accommodation.profile.email }}">{{ accommodation.profile.email }}</a></p> 
+            <p class="accomLocality"> <b>Locality:</b> {{ accommodation.locality }}</p> 
           </a>
 
           {% if mode == 'profile' %}
             <a href="/accommodation_form?id={{ accommodation.key().id() }}" class="edit" data-icon"false"> Edit </a>
           {% endif %}      
+          <ul>
+            <li style="overflow: auto;">
+                <div class="content-wrapper">
+                  <h3 class="accomTitle"> {{ accommodation.accommodationtype }} </h3>
+            <span class="ui-li-count"> {{ accommodation.requirement }} </span> 
+            <p><b>Bedrooms:</b> {{ accommodation.bedrooms }} </p>
+            <p><b>Range: </b> Rs:{{ accommodation.minbudget }} to Rs:{{ accommodation.maxbudget }}</p>
+
+            <p class="accomLocality"> <b>Locality:</b> {{ accommodation.locality }}</p> 
+                <p><b>Name:</b> {{ accommodation.profile.name }}</p>
+                <p><b>Phone:</b> <a href="tel:{{ accommodation.profile.phone }}">{{ accommodation.profile.phone }}</a></p>
+                <p><b>Email:</b> <a href="mailto:{{ accommodation.profile.email }}">{{ accommodation.profile.email }}</a></p>
+                </div>
+            </li>
+          </ul>
       </li>
       {% endfor %}
 </ul>

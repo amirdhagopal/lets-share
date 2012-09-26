@@ -137,7 +137,7 @@ span.time { background: url("../images/time.png") no-repeat 5% center; padding-l
 .ui-li-has-count .ui-li-count {margin-right: 10px;font-size: 1em; font-weight: normal; text-transform: capitalize; border-radius: 10px;}
 .transportTitle, .transportVia, .accomTitle, .accomLocality, .n-cap {text-transform: capitalize;}
 .transportTitle, .accomTitle {margin-bottom: 15px;}
-.ui-li-desc {width: 50%; float: left; margin-bottom: 8px;}
+.ui-li-desc {width: 45%; float: left; margin-bottom: 8px;}
 a.edit {background: url("../images/edit.png") no-repeat center center; margin-top:2px;}
 a.edit .ui-btn {display: none;}
 
