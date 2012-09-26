@@ -52,9 +52,9 @@ textarea.ui-input-text {height: 100px;}
 .letsshareLogo { width: 30%; float: left;}
 
 .ui-header {border-bottom: 5px solid #ccc;}
-.content-wrapper h1{font-size: 1.1em; margin: 0 0 10px 0; background: none repeat scroll 0 0 #CCCCCC; border-radius: 0 0 10px 10px; padding: 0 0 5px 10px; color:#666; text-shadow: 0 1px 0 #EEEEFF;}
+.content-wrapper h1{font-size: 1.3em; margin: 0 0 10px 0; background: none repeat scroll 0 0 #CCCCCC; border-radius: 0 0 10px 10px; padding: 0 0 5px 10px; color:#666; text-shadow: 0 1px 0 #EEEEFF; font-weight:normal;}
 .userTitle {width: 68%; float: right; font-size: 14px; margin-top: 45px; text-align: right; padding-right: 1%; font-weight: normal;color: #FFFFFF;}
-div.ui-header.ui-bar-b a.userTitle {color: #fff; font-weight: normal; text-decoration: none; font-size:0.8em;}
+div.ui-header.ui-bar-b a.userTitle {color: #fff; font-weight: normal; text-decoration: none; font-size:0.88em;}
 .userTitle img{ margin-left: 1%;}
 .headerWrapperN { overflow: auto;}
 img {max-width: 100%}
@@ -108,7 +108,7 @@ input.ui-input-text, textarea.ui-input-text {background: #fcfcfc; border: 1px so
 .priceRangeInfo div.ui-slider{position: relative; left: 30px;} 
 .priceRangeInfo div.ui-slider .ui-btn-up-a{background: #ccc; border: 1px solid #aaa;}
 .priceRangeInfo div.ui-slider .ui-btn-hover-a{background: #ddd; border: 1px solid #ccc;} 
-.priceRangeInfo div:last-child {position: relative; top: -25px; left: 105px;}
+.priceRangeInfo div:last-child {position: relative; top: -23px; left: 105px;}
 .priceRangeInfo #maxbudget{position: relative; left: 53px; width: 75px;}
 .priceRangeInfo #minbudget{width: 75px; color:#666; text-shadow: none;}
                   
@@ -139,6 +139,11 @@ span.time { background: url("../images/time.png") no-repeat 5% center; padding-l
 .ui-li-desc {width: 50%; float: left; margin-bottom: 8px;}
 a.edit {background: url("../images/edit.png") no-repeat center center; margin-top:2px;}
 a.edit .ui-btn {display: none;}
+
+label.ui-input-text, .ui-controlgroup-label, input.ui-input-text, textarea.ui-input-text, .ui-controlgroup .ui-checkbox label, .ui-controlgroup .ui-radio label,
+.ui-body-c, .ui-body-c input, .ui-body-c select, .ui-body-c textarea, .ui-body-c button, .ui-li-heading {font-size: 14px;}
+
+.ui-listview-filter .ui-input-text {color: #666;}
 
 .ui-footer {margin-top: 10px;}
 .ui-footer center {font-size: 12px; padding: 10px 0 10px 0;}
