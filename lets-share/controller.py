@@ -98,6 +98,8 @@ class ProfileHandler(BaseHandler):
         logging.info(profileContent)
 
     	ProfileDetail().save_profile(profileContent, profile)
+        key = 'userid:%s' % user.user_id()
+        memcache.delete(key)
 
         self.redirect("/transport")
 
