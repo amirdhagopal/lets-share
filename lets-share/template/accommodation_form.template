@@ -23,7 +23,7 @@
       </div>      
 		  <div data-role="fieldcontain">
         <fieldset id="accommodationtype" data-role="controlgroup" data-type="horizontal">
-          <legend class="ui-input-text">Accommodation Type:</legend>
+          <legend class="ui-input-text">Accom' Type:</legend>
           <input type="radio" name="accommodationtype" id="radio-view-a" value="independent house" {% if accommodationtype == 'independent house' %} checked {% endif%}/>
           <label for="radio-view-a">Independent house</label>
           <input type="radio" name="accommodationtype" id="radio-view-b" value="apartment" {% if accommodationtype == 'apartment' %} checked {% endif%}/>

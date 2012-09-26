@@ -29,16 +29,16 @@ var userOperation = {
 
 $('[data-role="page"]').live('pageshow', function () {
     //priceRange
-    $('#buying_slider_min').change(function() {
+    $('#minbudget').change(function() {
         var min = parseInt($(this).val());
-        var max = parseInt($('#buying_slider_max').val());
+        var max = parseInt($('#maxbudget').val());
         if (min > max) {
             $(this).val(max);
             $(this).slider('refresh');
         }
     });
-    $('#buying_slider_max').change(function() {
-        var min = parseInt($('#buying_slider_min').val());
+    $('#maxbudget').change(function() {
+        var min = parseInt($('#minbudget').val());
         var max = parseInt($(this).val());
 
         if (min > max) {

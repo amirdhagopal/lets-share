@@ -105,15 +105,15 @@ input.ui-input-text, textarea.ui-input-text {background: #fcfcfc; border: 1px so
 
 .rangeSlider {width: 77%; float: right;}
 .ui-field-contain .ui-controlgroup-controls {width: 77%!important; margin-left: 0.5%;}
-.priceRangeInfo div.ui-slider{position: relative; left: 21px;} 
+.priceRangeInfo div.ui-slider{position: relative; left: 30px;} 
 .priceRangeInfo div.ui-slider .ui-btn-up-a{background: #ccc; border: 1px solid #aaa;}
 .priceRangeInfo div.ui-slider .ui-btn-hover-a{background: #ddd; border: 1px solid #ccc;} 
-.priceRangeInfo div:last-child {position: relative; top: -24px; left: 95px;}
+.priceRangeInfo div:last-child {position: relative; top: -25px; left: 105px;}
 .priceRangeInfo #maxbudget{position: relative; left: 53px; width: 75px;}
 .priceRangeInfo #minbudget{width: 75px; color:#666; text-shadow: none;}
                   
 
-.profileStatus, .ui-field-contain div.ui-slider{width: 74%; margin-left: .5%;}
+.profileStatus, .ui-field-contain div.ui-slider{width: 36%; margin-left: .5%;}
 .ui-checkbox {margin-left: 1%!important;}
 
 .navbar {margin-bottom: 10px;}
