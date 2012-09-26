@@ -91,7 +91,6 @@ input.ui-input-text, textarea.ui-input-text {background: #fcfcfc; border: 1px so
 .nui-icon-datebox {
   background-position: 97% center!important; 
   background-repeat:no-repeat!important;
-  width: 39%!important;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3)!important;
   background: #EEEEEE;
   background-image: url("../images/time.png"); /* fallback */
@@ -105,6 +104,7 @@ input.ui-input-text, textarea.ui-input-text {background: #fcfcfc; border: 1px so
 }
 
 .rangeSlider {width: 77%; float: right;}
+.ui-field-contain .ui-controlgroup-controls {width: 77%!important; margin-left: 0.5%;}
 .priceRangeInfo div.ui-slider{position: relative; left: 21px;} 
 .priceRangeInfo div.ui-slider .ui-btn-up-a{background: #ccc; border: 1px solid #aaa;}
 .priceRangeInfo div.ui-slider .ui-btn-hover-a{background: #ddd; border: 1px solid #ccc;} 
@@ -113,8 +113,8 @@ input.ui-input-text, textarea.ui-input-text {background: #fcfcfc; border: 1px so
 .priceRangeInfo #minbudget{width: 75px; color:#666; text-shadow: none;}
                   
 
-.profileStatus, .ui-field-contain div.ui-slider{width: 38%; }
-.ui-checkbox {width: 65%; margin-left: 1%!important;}
+.profileStatus, .ui-field-contain div.ui-slider{width: 74%; margin-left: .5%;}
+.ui-checkbox {margin-left: 1%!important;}
 
 .navbar {margin-bottom: 10px;}
 .nav{border-radius: 10px; border-right: 1px solid #ccc!important;}
@@ -125,7 +125,7 @@ input.ui-input-text, textarea.ui-input-text {background: #fcfcfc; border: 1px so
 .ui-block-c .nav{border-top-left-radius: 0; border-bottom-left-radius: 0; border-left: 1px solid #74d778!important;}
 .ui-grid-solo .ui-block-a {width: 100%!important;}
 .ui-grid-solo .ui-block-a a{border-radius: 10px!important; border-right: 1px solid #ccc!important;}
-.ui-grid-a .ui-block-a, .ui-grid-a .ui-block-b{width: 49%!important;}
+.ui-grid-a .ui-block-a, .ui-grid-a .ui-block-b{width: 50%!important;}
 .ui-grid-a .ui-block-b a{border-top-right-radius: 10px!important; border-bottom-right-radius: 10px!important;}
 .ui-btn-icon-top .ui-btn-inner {padding-top:25px;}
 .ui-btn-icon-top .ui-icon {top: 5px;}
