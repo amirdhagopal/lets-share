@@ -7,7 +7,7 @@
 	</div>
 	<ul data-role="listview" data-theme="c" data-inset="true" >
 		<li><a href="/transport_list" rel="external">Transport</a></li>
-		<li><a href="/accommodation_list" rel="external">Accommodate</a></li>
+		<li><a href="/accommodation_list" rel="external">Accommodation</a></li>
 	</ul>
 	<br />
 </div>

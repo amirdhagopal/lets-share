@@ -144,6 +144,8 @@ a.edit .ui-btn {display: none;}
 label.ui-input-text, .ui-controlgroup-label, input.ui-input-text, textarea.ui-input-text, .ui-controlgroup .ui-checkbox label, .ui-controlgroup .ui-radio label,
 .ui-body-c, .ui-body-c input, .ui-body-c select, .ui-body-c textarea, .ui-body-c button, .ui-li-heading {font-size: 14px;}
 
+.ui-body-null .ui-title {display: none;}
+
 .ui-listview-filter .ui-input-text {color: #666;}
 
 .ui-footer {margin-top: 10px;}
