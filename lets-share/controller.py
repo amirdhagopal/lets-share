@@ -101,6 +101,16 @@ class ProfileHandler(BaseHandler):
 
         self.redirect("/transport")
 
+class ServicesHandler(BaseHandler):
+    def get(self):
+        
+        template_values = self.get_template_values()
+        
+        template_values['page_title'] = 'Services'
+        template_values['form_name'] = template_path + 'services_list.template'
+        template = jinja_environment.get_template(page_path)
+        self.response.out.write(template.render(template_values))
+        
 class TransportHandler(BaseHandler):
     def get(self):
         profile = self.get_current_profile()
@@ -187,30 +197,6 @@ class TransportListHandler(BaseHandler):
         template = jinja_environment.get_template(page_path)
         self.response.out.write(template.render(template_values))
 
-class AccommodationListHandler(BaseHandler):
-    def get(self):
-        template_values = self.get_template_values()
-        profile = self.get_current_profile()
-        if 'profile' in self.request.arguments():
-            accommodations = AccommodationDetail().get_accommodations_for_profile(profile)
-            template_values['continue'] = 'services'
-            template_values['nav_bar'] = template_path + 'profile_nav_bar.template'
-            template_values['mode'] = 'profile'
-        else:
-            corporate = None if profile is None else profile.corporate
-            accommodations = AccommodationDetail().get_accommodations_for_corporates(corporate)
-            template_values['nav_bar'] = template_path + 'search_nav_bar.template'
-            template_values['mode'] = 'search'
-        
-        template_values['addnew'] = 'accommodation_form'
-        template_values['showme'] = 'accommodation'
-        template_values['entity'] = 'Accommodation'
-        template_values['page_title'] = 'Accommodation List'
-        template_values['form_name'] = template_path + 'accommodation_list.template'
-        template_values['accommodations'] = accommodations
-        template = jinja_environment.get_template(page_path)
-        self.response.out.write(template.render(template_values))
-
 class AccommodationHandler(BaseHandler):
     def get(self):
         profile = self.get_current_profile()
@@ -271,6 +257,31 @@ class AccommodationFormHandler(BaseHandler):
 
         self.redirect("/services")
 
+class AccommodationListHandler(BaseHandler):
+    def get(self):
+        template_values = self.get_template_values()
+        profile = self.get_current_profile()
+        if 'profile' in self.request.arguments():
+            accommodations = AccommodationDetail().get_accommodations_for_profile(profile)
+            template_values['continue'] = 'services'
+            template_values['nav_bar'] = template_path + 'profile_nav_bar.template'
+            template_values['mode'] = 'profile'
+        else:
+            corporate = None if profile is None else profile.corporate
+            accommodations = AccommodationDetail().get_accommodations_for_corporates(corporate)
+            template_values['nav_bar'] = template_path + 'search_nav_bar.template'
+            template_values['mode'] = 'search'
+        
+        template_values['addnew'] = 'accommodation_form'
+        template_values['showme'] = 'accommodation'
+        template_values['entity'] = 'Accommodation'
+        template_values['page_title'] = 'Accommodation List'
+        template_values['form_name'] = template_path + 'accommodation_list.template'
+        template_values['accommodations'] = accommodations
+        template = jinja_environment.get_template(page_path)
+        self.response.out.write(template.render(template_values))
+
+
 class CorporateHandler(BaseHandler):
     def get(self):
         
@@ -291,13 +302,3 @@ class CorporateHandler(BaseHandler):
         CorporateDetail().save_corporate(corporateContent)
 
         self.redirect("/services")
-
-class ServicesHandler(BaseHandler):
-    def get(self):
-        
-        template_values = self.get_template_values()
-        
-        template_values['page_title'] = 'Services'
-        template_values['form_name'] = template_path + 'services_list.template'
-        template = jinja_environment.get_template(page_path)
-        self.response.out.write(template.render(template_values))

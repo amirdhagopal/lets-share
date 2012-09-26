@@ -25,8 +25,8 @@
                  <p class="n-cap"><b>Vehicle:</b> {{ transport.vehicletype }}<p>
                  <p><b>Available Seats:</b> {{ transport.availableseats }}</p>
                  <p class="n-cap"><b>Name:</b> {{ transport.profile.name }}</p>
-                 <p><b>Phone:</b> {{ transport.profile.phone }}</p>
-                 <p><b>Email:</b> {{ transport.profile.email }}</p>
+                 <p><b>Phone:</b> <a href="tel:{{ transport.profile.phone }}"> {{ transport.profile.phone }} </a></p>
+                 <p><b>Email:</b> <a href="mailto:{{ transport.profile.email }}"> {{ transport.profile.email }} </a></p>
                  </div>
              </li>
              </ul>
