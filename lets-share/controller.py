@@ -278,6 +278,7 @@ class CorporateHandler(BaseHandler):
         
         template_values['page_title'] = 'Corporate Details'
         template_values['form_name'] = template_path + 'corporate_form.template'
+        template_values['cities'] = CorporateDetail().get_cities()
         template = jinja_environment.get_template(page_path)
         self.response.out.write(template.render(template_values))
 

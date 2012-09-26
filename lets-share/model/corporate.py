@@ -15,7 +15,7 @@ class CorporateDetail():
 		return Corporate().all()
 
 	def get_cities(self):
-		return ['Chennai', 'Bangalore', 'Pune', 'Gurgaon']
+		return ['Bangalore', 'Chennai', 'Pune', 'Gurgaon']
 
 	def get_corporate_by_id(self, id):
 		return Corporate.get_by_id(id)
